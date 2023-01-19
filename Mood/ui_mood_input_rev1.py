@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+background_image = "Mood/images/default_background.jpg"
 
 
 class Ui_Form(object):
@@ -32,8 +33,8 @@ class Ui_Form(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet("background-image: url(:/PrefixV1/images/mood input fg.png);\n"
-"background-image: url(:/newPrefix/images/mood input fg with back.png);")
+        self.label.setStyleSheet(f"background-image: url({background_image});\n"
+"border-image: url(:/newPrefix/images/mood input fg with back.png);")
         self.label.setText("")
         self.label.setObjectName("label")
         self.horizontalSlider_joy = QtWidgets.QSlider(Form)
