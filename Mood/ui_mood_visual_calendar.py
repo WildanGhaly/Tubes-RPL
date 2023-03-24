@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import MainMenu.mainmenu as mainmenu
 
 
 class Ui_Dialog(object):
@@ -30,7 +31,7 @@ class Ui_Dialog(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setMinimumSize(QtCore.QSize(720, 480))
         self.label.setMaximumSize(QtCore.QSize(720, 480))
-        self.label.setStyleSheet("border-image: url(:/newPrefix/images/default_background.jpg);")
+        self.label.setStyleSheet(f"border-image: url({mainmenu.image_path});\n")
         self.label.setObjectName("label")
         self.layoutWidget = QtWidgets.QWidget(Dialog)
         self.layoutWidget.setGeometry(QtCore.QRect(10, 440, 701, 26))
