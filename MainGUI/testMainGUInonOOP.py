@@ -8,9 +8,9 @@ from pathlib import Path
 
 global bgImg
 
-mainGUI = ctk.CTk()
-mainGUI.geometry('1280x720')
-canvas = tk.Canvas(mainGUI, width=1280, height=720, highlightthickness=0)
+mainGUI = tk.Tk()
+mainGUI.geometry('1920x1080')
+canvas = tk.Canvas(mainGUI, width=1920, height=1080, highlightthickness=0)
 canvas.pack(fill="both",expand=True)
 
 bgImg = tk.PhotoImage(file= "Stock/bg2.png")
@@ -24,7 +24,7 @@ def bgChange():
   print(image_path)
   print(get_var_image)
   img = Image.open(image_path)
-  img = ImageTk.PhotoImage(img.resize((1280, 720)))
+  img = ImageTk.PhotoImage(img.resize((1920, 1080)))
   default = Path("Stock/default.png")
   if(not Path.exists(default)):
       os.rename("Stock/bg2.png","Stock/default.png")
