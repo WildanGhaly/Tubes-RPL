@@ -1,13 +1,16 @@
 import tkinter as tk
 from tkinter import *
-import csv
-import os
+from datetime import date
+from datetime import datetime
+import mood_service as ms
 
-class MoodApp:
+class MoodApp(ms.Mood_Service):
     # List untuk data
     data_list = []
 
     def __init__(self, master):
+        super().__init__()
+        
         # Setup background
         self.master = master
         self.master.title('Input Mood')
@@ -65,20 +68,16 @@ class MoodApp:
     # ketika tombol ditekan
     def button_click(self):
         # ambil data dari scales untuk dimasukkan ke csv
-        hasilData = [str(scale.get()) for scale in self.scales]
-        index = 0
-        self.data_list.append(hasilData)
-
-        with open('mood.csv', 'a', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-
-            # kondisi ketika belum ada file
-            if len(self.data_list) == 1 and os.path.getsize('mood.csv') == 0:
-                # write the header
-                writer.writerow(['Joy', 'Sadness', 'Anger', 'Fear', 'Disgust', 'Surprise', 'Trust', 'Anticipation'])
-                
-            # menuliskan data yang baru
-            writer.writerow(hasilData)
+        now = datetime.now().strftime("%H%M%S")
+        dateNow = date.today().strftime("%d%m%Y")
+        hasilData = []
+        hasilData.append(int(dateNow+now))
+        for scale in self.scales:
+            hasilData.append(scale.get())
+        
+        print(hasilData)
+        self.add_mood(hasilData)
+        
 
 # Menjalankan program
 if __name__ == '__main__':
