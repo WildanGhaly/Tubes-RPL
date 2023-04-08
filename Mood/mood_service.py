@@ -1,7 +1,7 @@
-import mood as m
+from mood import Mood as m
 import csv
 
-class Mood_Service(m.mood):
+class Mood_Service(m):
     def __init__(self):
         super().__init__()
     
