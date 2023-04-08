@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>vstock/sleep_viz.jpg</file>
+  </qresource>
+</RCC>
