@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>images/mood_input.jpg</file>
+    <file>images/mood_input_rev1.jpg</file>
+    <file>images/mood_prediction.jpg</file>
+    <file>images/mood_prediction_rate.jpg</file>
+    <file>images/mood_visual.jpg</file>
+    <file>images/SubmitButton.png</file>
+    <file>images/SubmitButtonNoText.png</file>
+  </qresource>
+</RCC>
