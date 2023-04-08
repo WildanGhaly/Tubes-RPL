@@ -38,6 +38,8 @@ class Mood_Visual(QWidget, uw.Ui_Form):
         self.mood = Mood_Service()
         self.mood_found = self.mood.find_mood(self.mood_visual_selected_to_calculate)
         if (self.mood_found == []):
+            self.label_one_day_mood.clear()
+            self.label_one_day_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
             self.label_one_day_mood.setText("No data found")
             self.layout().addWidget(self.label_one_day_mood)
         else:
@@ -73,6 +75,7 @@ class Mood_Visual(QWidget, uw.Ui_Form):
             plt.legend()
             plt.savefig('./images/mood_visual_one_day_result.png')
             
+            self.label_one_day_mood.clear()
             self.label_one_day_mood.setStyleSheet("border-image: url(./images/mood_visual_one_day_result.png);")
             
             
