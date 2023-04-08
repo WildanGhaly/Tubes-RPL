@@ -14,7 +14,23 @@ class Mood_Form(QWidget, uw.Ui_Form, Mood_Service):
         self.setupUi(self)
         self.submitButtonMood.clicked.connect(self.do_something)
         
-    
+    def do_something(self):
+        now = datetime.now().strftime("%H%M%S")
+        dateNow = date.today().strftime("%d%m%Y")
+        hasilData = []
+        hasilData.append(dateNow+now)
+        hasilData.append(self.horizontalSlider_joy.value())
+        hasilData.append(self.horizontalSlider_sadness.value())
+        hasilData.append(self.horizontalSlider_anger.value())
+        hasilData.append(self.horizontalSlider_fear.value())
+        hasilData.append(self.horizontalSlider_disgust.value())
+        hasilData.append(self.horizontalSlider_surprise.value())
+        hasilData.append(self.horizontalSlider_trust.value())
+        hasilData.append(self.horizontalSlider_anticipation.value())
+        
+        self.add_mood(hasilData)
+        
+        print(hasilData)
 
 
 app = QtWidgets.QApplication(sys.argv)
