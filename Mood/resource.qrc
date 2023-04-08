@@ -7,5 +7,6 @@
     <file>images/mood_visual.jpg</file>
     <file>images/SubmitButton.png</file>
     <file>images/SubmitButtonNoText.png</file>
+    <file>images/default_background.jpg</file>
   </qresource>
 </RCC>
