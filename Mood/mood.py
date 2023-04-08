@@ -1,6 +1,6 @@
 import csv
 
-class mood:
+class Mood:
     # Konstruktor
     def __init__(self):
         self.filename = './mood.csv'
