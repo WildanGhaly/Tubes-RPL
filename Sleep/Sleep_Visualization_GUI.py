@@ -1,15 +1,11 @@
 import sys
 import resource_rc
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDateEdit, QFrame, QGraphicsView,
-    QLabel, QPushButton, QSizePolicy, QWidget)
+from PySide6.QtCore import (QCoreApplication, QDateTime,
+    QMetaObject, QRect,
+    QSize)
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
 from PySide6 import QtWidgets
 
 from Sleep_Plot import *
@@ -51,7 +47,7 @@ class Ui_Widget(QWidget):
         
         self.nextButton = QPushButton(Widget)
         self.nextButton.setObjectName(u"nextButton")
-        self.nextButton.setGeometry(QRect(1690, 950, 170, 80))
+        self.nextButton.setGeometry(QRect(1665, 940, 225, 100))
         self.nextButton.setStyleSheet(u"\n"
             "font: 700 20pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
@@ -67,15 +63,15 @@ class Ui_Widget(QWidget):
         self.dateEdit.setGeometry(QRect(538, 968, 195, 45))
         #Start Sleep Chart
         startSleepChart = PlotCanvas(self, width=5, height=4)
-        startSleepChart.move(200,400)
+        startSleepChart.move(211,395)
         
         #Duration Sleep Chart
         durationSleep = PlotCanvas(self, width=5, height=4)
-        durationSleep.move(725,400)
+        durationSleep.move(735,395)
 
         #endSleepChart
         endSleepChart = PlotCanvas(self, width=5, height=4)
-        endSleepChart.move(1250,400)
+        endSleepChart.move(1260,395)
         
         self.nextButton.raise_()
         self.dateEdit.raise_()
@@ -92,6 +88,9 @@ class Ui_Widget(QWidget):
         self.nextButton.setText(QCoreApplication.translate("Widget", u"NEXT", None))
         self.label.setText("")
     # retranslateUi
+    
+    def getDate(self):
+        return self.dateEdit.dateTime()
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
