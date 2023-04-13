@@ -8,8 +8,12 @@ from Journal.JournalInput_Call import Journal_GUI_Call as journal_window
 from Sleep.Sleep_Input_GUI import Ui_Widget as sleep_window
 from Quotes.Choose_Call import Quotes_Choose_Call as quotes_window
 from Quotes.Quotes_Popup_Call import Quotes_Popup_Call as quotes_popup
+import os
+import shutil
+import pathlib
 
 first_run = True
+image_path = "image/background.jpg"
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,7 +33,7 @@ class Ui_MainWindow(object):
             self.label = QtWidgets.QLabel(self.centralwidget)
             self.label.setGeometry(QtCore.QRect(0, 0, 1371, 721))
             self.label.setText("")
-            pixmap = self.label.setPixmap(QtGui.QPixmap('mainmenu/background.jpg'))
+            pixmap = self.label.setPixmap(QtGui.QPixmap(image_path))
             self.label.setObjectName("label")
             self.label_3 = QtWidgets.QLabel(self.centralwidget)
             self.label_3.setGeometry(QtCore.QRect(0, 0, 1371, 721))
@@ -154,7 +158,8 @@ class Ui_MainWindow(object):
         file_path, _ = file_dialog.getOpenFileName()
             
         if file_path:
-            pixmap = QtGui.QPixmap(file_path).scaled(self.label.width(), self.label.height())
+            shutil.copy2(file_path, image_path)
+            pixmap = QtGui.QPixmap(image_path).scaled(self.label.width(), self.label.height())
             self.background_changed = True
         else:
             return
