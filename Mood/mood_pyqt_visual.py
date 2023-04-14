@@ -29,6 +29,7 @@ class Mood_Visual(QWidget, uw.Ui_Form):
         self.mood_visual_selected_to_calculate = int(self.input_cal.calendar_mood_visual.selectedDate().toString("yyyyMMdd"))
         print (self.mood_visual_selected_to_calculate)
         self.calculate_one_day()
+        self.calculate_one_week()
         
     def do_somethong_calendar_cancel(self):
         print ("cancel")
@@ -41,7 +42,7 @@ class Mood_Visual(QWidget, uw.Ui_Form):
             self.label_one_day_mood.clear()
             self.label_one_day_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
             self.label_one_day_mood.setText("No data found")
-            self.layout().addWidget(self.label_one_day_mood)
+            # self.layout().addWidget(self.label_one_day_mood)
         else:
             self.mood_8 = [0,0,0,0, 0,0,0,0]
             for j in range (8):
@@ -78,7 +79,64 @@ class Mood_Visual(QWidget, uw.Ui_Form):
             self.label_one_day_mood.clear()
             self.label_one_day_mood.setStyleSheet("border-image: url(./images/mood_visual_one_day_result.png);")
             
+    def calculate_one_week(self):
+        self.mood = Mood_Service()
+        self.mood_found = self.mood.find_mood(self.mood_visual_selected_to_calculate)
+        if (self.mood_found == []):
+            self.label_one_week_mood.clear()
+            self.label_one_week_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
+            self.label_one_week_mood.setText("No data found")
+        else:
+            count = 0;
+            data = [];
+            week = [];
+            print("=================================")
+            for i in range (30):
+                self.mood_found = self.mood.find_mood(self.mood_visual_selected_to_calculate)
+                if (self.mood_found != []):
+                    self.mood_8 = [0,0,0,0, 0,0,0,0]
+                    for j in range (8):
+                        for k in range (len(self.mood_found)):
+                            self.mood_8[j] += int(self.mood_found[k][j+2])
+                        self.mood_8[j] = self.mood_8[j]/len(self.mood_found)
+                    data.append(self.mood_8)
+                    count += 1
+                    week.append(self.mood_found[0][0])
+                    print (self.mood_found[0][0])
+                
+                self.mood_visual_selected_to_calculate = Mood_Service.subtract_one_day(self.mood_visual_selected_to_calculate)
+                # print(count)
+                if count == 7:
+                    break
             
+            print("Count", count)
+            print("=================================")
+            for i in range (len(data)):
+                print(data[i])
+            print("=================================")
+            print(week)
+        
+            if count == 7:
+                num = [1,2,3,4,5,6,7]
+                fig, ax = plt.subplots()
+                new_data = []
+                new_one_data = []
+                category = ['Joy', 'Sadness', 'Anger', 'Fear', 'Disgust', 'Surprise', 'Trust', 'Anticipation']
+                for i in range (8):
+                    new_one_data.clear()
+                    for j in range (7):
+                        new_one_data.append(data[j][i])
+                    print(new_data)
+                    ax.plot(num, new_one_data, label=category[i])
+
+                ax.legend()
+                plt.savefig('./images/mood_visual_one_week_result.png')
+                self.label_one_week_mood.clear()
+                self.label_one_week_mood.setStyleSheet("border-image: url(./images/mood_visual_one_week_result.png);")
+            else:
+                self.label_one_week_mood.clear()
+                self.label_one_week_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
+                self.label_one_week_mood.setText("Data is\nnot enough")
     
 app = QtWidgets.QApplication(sys.argv)
 
