@@ -1,5 +1,6 @@
 from mood import Mood as m
 import csv
+import datetime
 
 class Mood_Service(m):
     def __init__(self):
@@ -26,5 +27,16 @@ class Mood_Service(m):
             if int(self.mood[i][0]) == int(date):
                 moodFound.append(self.mood[i])
         return moodFound
-        
     
+
+    def subtract_one_day(date_int):
+        date_str = str(date_int)
+        year = int(date_str[:4])
+        month = int(date_str[4:6])
+        day = int(date_str[6:])
+        
+        date_obj = datetime.date(year, month, day)
+        new_date_obj = date_obj - datetime.timedelta(days=1)
+        
+        new_date_int = int(new_date_obj.strftime('%Y%m%d'))
+        return new_date_int
