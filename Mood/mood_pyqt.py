@@ -16,9 +16,10 @@ class Mood_Form(QWidget, uw.Ui_Form, Mood_Service):
         
     def do_something(self):
         now = datetime.now().strftime("%H%M%S")
-        dateNow = date.today().strftime("%d%m%Y")
+        dateNow = date.today().strftime("%Y%m%d")
         hasilData = []
-        hasilData.append(dateNow+now)
+        hasilData.append(dateNow)
+        hasilData.append(now)
         hasilData.append(self.horizontalSlider_joy.value())
         hasilData.append(self.horizontalSlider_sadness.value())
         hasilData.append(self.horizontalSlider_anger.value())
