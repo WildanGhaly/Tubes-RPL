@@ -32,12 +32,12 @@ class Quotes_Service(Q.Quotes):
         for quote in new_quotes:
             self.add_quote(quote)
             
-    def edit_quote(self, quote_id, new_quote):
-        print(quote_id, new_quote)
+    def edit_quote(self, quote_old, new_quote):
+        print(quote_old, new_quote)
         if not self.validate_quote(new_quote):
             return False
         for quote in self.quotes:
-            if quote[0] == int(quote_id):
+            if quote[1] == quote_old:
                 quote[1] = new_quote
 
                 with open(self.filename, 'w', newline='') as file:
