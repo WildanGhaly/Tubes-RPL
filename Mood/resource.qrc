@@ -9,4 +9,13 @@
     <file>images/SubmitButtonNoText.png</file>
     <file>images/default_background.jpg</file>
   </qresource>
+  <qresource prefix="PrefixV1">
+    <file>images/default_background.jpg</file>
+    <file>images/mood input fg.png</file>
+    <file>images/mood prediction fg.png</file>
+    <file>images/next button.png</file>
+    <file>images/submit button.png</file>
+    <file>images/mood prediction rate fg.png</file>
+    <file>images/mood visualization fg.png</file>
+  </qresource>
 </RCC>
