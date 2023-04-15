@@ -1,55 +1,82 @@
-import csv
-import tkinter as tk
-import Sleep_Service as SS
-from tkinter import messagebox
+import sys
+import resource_rc
 
-class FormSleep(SS.Sleep_Service):
-    
-    def __init__(self, root):
+from PySide6.QtCore import (QCoreApplication, QDateTime,
+    QMetaObject, QRect,
+    QSize)
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
+from PySide6 import QtWidgets
+
+from Sleep_Plot import *
+
+class Ui_Widget(QWidget):
+    def __init__(self):
+        
         super().__init__()
-        self.root = root
-        self.root.geometry("600x400")
-        self.root.title("Input Data Tidur")
+        self.title='Sleep'
+        self.left = 0
+        self.top = 0
+        self.width = 1366
+        self.height = 720
+        self.setupUi(self)
+    
+    def setupUi(self, Widget):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+        if not Widget.objectName():
+            Widget.setObjectName(u"Widget")
+        Widget.resize(1366, 720)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
+        Widget.setSizePolicy(sizePolicy)
+        Widget.setMinimumSize(QSize(1366, 720))
+        Widget.setMaximumSize(QSize(1366, 720))
+        self.sleepViz = QLabel(Widget)
+        self.sleepViz.setObjectName(u"label")
+        self.sleepViz.setEnabled(True)
+        self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
+        sizePolicy.setHeightForWidth(self.sleepViz.sizePolicy().hasHeightForWidth())
+        self.sleepViz.setSizePolicy(sizePolicy)
+        self.sleepViz.setMinimumSize(QSize(1366, 720))
+        self.sleepViz.setMaximumSize(QSize(1366, 720))
+        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time input fg.png)")
+        self.plainTextEdit = QPlainTextEdit(Widget)
+        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))
+        self.plainTextEdit = QPlainTextEdit(Widget)
+        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setGeometry(QRect(680, 344, 275, 50))
+        self.plainTextEdit = QPlainTextEdit(Widget)
+        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setGeometry(QRect(730, 444, 225, 50))
+        
+        self.nextButton = QPushButton(Widget)
+        self.nextButton.setObjectName(u"nextButton")
+        self.nextButton.setGeometry(QRect(600, 547, 170, 72))
+        self.nextButton.setStyleSheet("QPushButton{background: transparent;}")
+        self.retranslateUi(Widget)
 
-        self.sleep_label = tk.Label(self.root, text="Time Sleep", font=('Arial', 18))
-        self.sleep_label.place(relx=0.5, rely=0.1, anchor="center")
+        QMetaObject.connectSlotsByName(Widget)
+        
+        self.show()
+    # setupUi
 
-        self.jam_start_label = tk.Label(self.root, text="Start Time:")
-        self.jam_start_label.place(relx=0.4, rely=0.4, anchor="center")
+    def retranslateUi(self, Widget):
+        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
+        # self.nextButton.setText(QCoreApplication.translate("Widget", u"NEXT", None))
+        self.sleepViz.setText("")
+    # retranslateUi
+    
+    def getDate(self):
+        return self.dateEdit.dateTime()
 
-        self.jam_start_entry = tk.Entry(self.root, width=5)
-        self.jam_start_entry.place(relx=0.51, rely=0.4, anchor="center")
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
 
-        self.menit_start_entry = tk.Entry(self.root, width=5)
-        self.menit_start_entry.place(relx=0.6, rely=0.4, anchor="center")
+    window = Ui_Widget()
+    window.show()
 
-        self.jam_selesai_label = tk.Label(self.root, text="End Time:")
-        self.jam_selesai_label.place(relx=0.4, rely=0.5, anchor="center")
-
-        self.jam_selesai_entry = tk.Entry(self.root, width=5)
-        self.jam_selesai_entry.place(relx=0.51, rely=0.5, anchor="center")
-
-        self.menit_selesai_entry = tk.Entry(self.root, width=5)
-        self.menit_selesai_entry.place(relx=0.6, rely=0.5, anchor="center")
-
-        self.simpan_button = tk.Button(self.root, text="Submit", command=self.submit_button)
-        self.simpan_button.place(relx=0.94, rely=0.94, anchor="se")
-
-    def submit_button(self):
-        jam_start = self.jam_start_entry.get()
-        menit_start = self.menit_start_entry.get()
-        jam_selesai = self.jam_selesai_entry.get()
-        menit_selesai = self.menit_selesai_entry.get()
-
-        if(self.validate_sleep(jam_start, menit_start, jam_selesai, menit_selesai)):
-            self.create_sleep(jam_start, menit_start, jam_selesai, menit_selesai)
-            messagebox.showinfo("Success", "Data Tidur Berhasil Disimpan")
-        else:
-            messagebox.showerror("Error", "Data Tidur Gagal Disimpan")
-
-
-
-
-root = tk.Tk()
-app = FormSleep(root)
-root.mainloop()
+    app.exec()
