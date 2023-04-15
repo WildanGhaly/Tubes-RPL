@@ -5,7 +5,7 @@ from PySide6.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
 from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
+from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
 from PySide6 import QtWidgets
 
 from Sleep_Plot import *
@@ -14,7 +14,7 @@ class Ui_Widget(QWidget):
     def __init__(self):
         
         super().__init__()
-        self.title='Sleep'
+        self.title='Sleep Input'
         self.left = 0
         self.top = 0
         self.width = 1366
@@ -42,34 +42,8 @@ class Ui_Widget(QWidget):
         self.sleepViz.setSizePolicy(sizePolicy)
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
-        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time visualization fg.png)")
-
-        self.nextButton = QPushButton(Widget)
-        self.nextButton.setObjectName(u"nextButton")
-        self.nextButton.setGeometry(QRect(1165, 617, 155, 72))
-        self.nextButton.setStyleSheet(u"background-image: url(:/newPrefix/vstock/next button.png)")
+        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep recommendation fg.png)")
         
-        font = QFont()
-        font.setPointSize(20)
-        # self.nextButton.setFont(font)
-        self.dateEdit = QDateEdit(Widget)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setGeometry(QRect(538, 500, 195, 45))
-        #Start Sleep Chart
-        startSleepChart = PlotCanvas(self, width=5, height=4)
-        startSleepChart.move(149,265)
-        
-        #Duration Sleep Chart
-        durationSleep = PlotCanvas(self, width=5, height=4)
-        durationSleep.move(520,265)
-
-        #endSleepChart
-        endSleepChart = PlotCanvas(self, width=5, height=4)
-        endSleepChart.move(890,265)
-        
-        # self.nextButton.raise_()
-        self.dateEdit.raise_()
-
         self.retranslateUi(Widget)
 
         QMetaObject.connectSlotsByName(Widget)
@@ -79,7 +53,7 @@ class Ui_Widget(QWidget):
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        self.nextButton.setText(QCoreApplication.translate("Widget", u"NEXT", None))
+        # self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
         self.sleepViz.setText("")
     # retranslateUi
     
