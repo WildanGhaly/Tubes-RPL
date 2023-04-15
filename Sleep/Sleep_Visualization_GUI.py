@@ -17,8 +17,8 @@ class Ui_Widget(QWidget):
         self.title='Sleep'
         self.left = 0
         self.top = 0
-        self.width = 1920
-        self.height = 1080
+        self.width = 1366
+        self.height = 720
         self.setupUi(self)
     
     def setupUi(self, Widget):
@@ -26,54 +26,48 @@ class Ui_Widget(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(1920, 1080)
+        Widget.resize(1366, 720)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
         Widget.setSizePolicy(sizePolicy)
-        Widget.setMinimumSize(QSize(1920, 1080))
-        Widget.setMaximumSize(QSize(1920, 1080))
-        self.label = QLabel(Widget)
-        self.label.setObjectName(u"label")
-        self.label.setEnabled(True)
-        self.label.setGeometry(QRect(0, 0, 1920, 1080))
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setMinimumSize(QSize(1920, 1080))
-        self.label.setMaximumSize(QSize(1920, 1080))
-        self.label.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep_viz.jpg)")
+        Widget.setMinimumSize(QSize(1366, 720))
+        Widget.setMaximumSize(QSize(1366, 720))
+        self.sleepViz = QLabel(Widget)
+        self.sleepViz.setObjectName(u"label")
+        self.sleepViz.setEnabled(True)
+        self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
+        sizePolicy.setHeightForWidth(self.sleepViz.sizePolicy().hasHeightForWidth())
+        self.sleepViz.setSizePolicy(sizePolicy)
+        self.sleepViz.setMinimumSize(QSize(1366, 720))
+        self.sleepViz.setMaximumSize(QSize(1366, 720))
+        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time visualization fg.png)")
 
-        
         self.nextButton = QPushButton(Widget)
         self.nextButton.setObjectName(u"nextButton")
-        self.nextButton.setGeometry(QRect(1665, 940, 225, 100))
-        self.nextButton.setStyleSheet(u"\n"
-            "font: 700 20pt \"Segoe Script\";\n"
-            "alternate-background-color: rgb(255, 85, 0);\n"
-            "selection-color: rgb(170, 0, 0);\n"
-            "selection-background-color: rgb(170, 0, 0);\n"
-            "border-color: rgb(0, 0, 0);")
+        self.nextButton.setGeometry(QRect(1165, 617, 155, 72))
+        self.nextButton.setStyleSheet(u"background-image: url(:/newPrefix/vstock/next button.png)")
         
         font = QFont()
         font.setPointSize(20)
-        self.nextButton.setFont(font)
+        # self.nextButton.setFont(font)
         self.dateEdit = QDateEdit(Widget)
         self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setGeometry(QRect(538, 968, 195, 45))
+        self.dateEdit.setGeometry(QRect(538, 500, 195, 45))
         #Start Sleep Chart
         startSleepChart = PlotCanvas(self, width=5, height=4)
-        startSleepChart.move(211,395)
+        startSleepChart.move(149,265)
         
         #Duration Sleep Chart
         durationSleep = PlotCanvas(self, width=5, height=4)
-        durationSleep.move(735,395)
+        durationSleep.move(520,265)
 
         #endSleepChart
         endSleepChart = PlotCanvas(self, width=5, height=4)
-        endSleepChart.move(1260,395)
+        endSleepChart.move(890,265)
         
-        self.nextButton.raise_()
+        # self.nextButton.raise_()
         self.dateEdit.raise_()
 
         self.retranslateUi(Widget)
@@ -86,7 +80,7 @@ class Ui_Widget(QWidget):
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
         self.nextButton.setText(QCoreApplication.translate("Widget", u"NEXT", None))
-        self.label.setText("")
+        self.sleepViz.setText("")
     # retranslateUi
     
     def getDate(self):

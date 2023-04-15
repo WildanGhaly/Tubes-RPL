@@ -13,7 +13,7 @@ class PlotCanvas(FigureCanvas):
         FigureCanvas.__init__(self,fig)
         self.setParent(parent)
         FigureCanvas.setSizePolicy(self, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        FigureCanvas.resize(self,450,460)
+        FigureCanvas.resize(self,330,300)
         self.plot()
         
     def plot(self):
