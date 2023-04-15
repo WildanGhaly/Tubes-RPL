@@ -72,7 +72,7 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -109,7 +109,7 @@ font: 700 10pt &quot;Arial&quot;;</string>
   </widget>
   <zorder>label</zorder>
   <zorder>calendar_mood_visual</zorder>
-  <zorder></zorder>
+  <zorder>layoutWidget</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>
