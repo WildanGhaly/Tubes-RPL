@@ -11,7 +11,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 1371, 721))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("../../design/edit to 1366 x 720/main menu without button.jpg"))
+        self.label.setPixmap(QtGui.QPixmap('../../tubes-rpl/mainmenu/mainmenu.jpg'))
         self.label.setObjectName("label")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(160, 230, 351, 161))
@@ -51,13 +51,13 @@ class Ui_MainWindow(object):
         self.pushButton_5.clicked.connect(self.printquotes)
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_6.setGeometry(QtCore.QRect(540, 560, 281, 121))
-        self.pushButton_6.setStyleSheet("background-image: url('../../tubes-rpl/mainmenu/historybutton.png');\n"
+        self.pushButton_6.setStyleSheet("background-image: url('../../tubes-rpl/mainmenu/infobutton.png');\n"
 "border: none;\n"
 "")
         self.pushButton_6.setText("")
         self.pushButton_6.setFlat(False)
         self.pushButton_6.setObjectName("pushButton_6")
-        self.pushButton_6.clicked.connect(self.printhistory)
+        self.pushButton_6.clicked.connect(self.openInfo)
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_7.setGeometry(QtCore.QRect(1180, 620, 161, 71))
         self.pushButton_7.setStyleSheet("background-image: url('../../tubes-rpl/mainmenu/quit.png');\n"
@@ -89,10 +89,9 @@ class Ui_MainWindow(object):
     def printquotes(self):
         print("Quotes udah bisa")
         
-    def printhistory(self):
-        print("History udah bisa")
-
-
+    def openInfo(self):
+        print("Info udah bisa")
+       
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
