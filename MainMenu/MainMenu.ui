@@ -33,23 +33,6 @@
      <pixmap>../../design/edit to 1366 x 720/main menu without button.jpg</pixmap>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>250</y>
-      <width>301</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\mood-button.png&quot;);
-border: none;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
