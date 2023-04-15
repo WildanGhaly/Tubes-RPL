@@ -14,6 +14,7 @@ class Ui_Widget(QWidget):
     def __init__(self):
         
         super().__init__()
+
         self.title='Sleep Input'
         self.left = 0
         self.top = 0
