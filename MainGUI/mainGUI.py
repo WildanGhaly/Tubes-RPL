@@ -17,7 +17,7 @@ class mainGUI:
         canvas = tk.Canvas(self.root, width=1920, height=1080, highlightthickness=0)
         canvas.pack(fill="both",expand=True)
         global backgroundImg
-        backgroundImg = tk.PhotoImage(file= "MainGUI/Stock/bg2.png")
+        backgroundImg = tk.PhotoImage(file= "D:\JASON\KULIAH ITB\MATKUL\SEMESTER 4\Rekayasa Perangkat Lunak\TUGAS BESAR APLIKASI\Tubes-RPL\MainGUI\Stock\\bg2.png")
         
         canvas.create_image(0,0, image=backgroundImg, anchor='nw')
         button_folder = tk.Button(self.root, 
@@ -38,15 +38,15 @@ class mainGUI:
         img = ImageTk.PhotoImage(img.resize((1920, 1080)))
         default = Path("MainGUI/Stock/default.png")
         if(not Path.exists(default)):
-            os.rename("MainGUI/Stock/bg2.png","MainGUI/Stock/default.png")
+            os.rename("D:\JASON\KULIAH ITB\MATKUL\SEMESTER 4\Rekayasa Perangkat Lunak\TUGAS BESAR APLIKASI\Tubes-RPL\MainGUI\Stock\\bg2.png","MainGUI/Stock/default.png")
         else:
-            os.remove("MainGUI/Stock/bg2.png")
+            os.remove("D:\JASON\KULIAH ITB\MATKUL\SEMESTER 4\Rekayasa Perangkat Lunak\TUGAS BESAR APLIKASI\Tubes-RPL\MainGUI\Stock\\bg2.png")
         shutil.copy2(image_path, "MainGUI/Stock/")
-        os.rename("MainGUI/Stock/"+Path(image_path).name, "MainGUI/Stock/bg2.png")
+        os.rename("MainGUI/Stock/"+Path(image_path).name, "D:\JASON\KULIAH ITB\MATKUL\SEMESTER 4\Rekayasa Perangkat Lunak\TUGAS BESAR APLIKASI\Tubes-RPL\MainGUI\Stock\\bg2.png")
         self.root.after(1000, self.__init__)
         
     def updateState(self, canvas):
-        backgroundImg = tk.PhotoImage(file= "MainGUI/Stock/bg2.png")
+        backgroundImg = tk.PhotoImage(file= "D:\JASON\KULIAH ITB\MATKUL\SEMESTER 4\Rekayasa Perangkat Lunak\TUGAS BESAR APLIKASI\Tubes-RPL\MainGUI\Stock\\bg2.png")
         canvas.create_image(0,0, image=backgroundImg, anchor='nw')
         self.root.after(1000, self.updateState)
         
