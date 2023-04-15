@@ -1,9 +1,9 @@
 import resource_rc
 import ui_mood_visual as uw 
-from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QSizePolicy
 import sys
-from PySide6 import QtWidgets
+from PyQt5 import QtWidgets
 from mood_service import Mood_Service
 from mood_pyqt_visual_calendar import Mood_Form_Calendar as mfc
 import plotly.graph_objects as go
@@ -41,7 +41,7 @@ class Mood_Visual(QWidget, uw.Ui_Form):
         if (self.mood_found == []):
             self.label_one_day_mood.clear()
             self.label_one_day_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
-            self.label_one_day_mood.setText("No data found")
+            self.label_one_day_mood.setText(" No data\n  found")
             # self.layout().addWidget(self.label_one_day_mood)
         else:
             self.mood_8 = [0,0,0,0, 0,0,0,0]
@@ -85,7 +85,7 @@ class Mood_Visual(QWidget, uw.Ui_Form):
         if (self.mood_found == []):
             self.label_one_week_mood.clear()
             self.label_one_week_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
-            self.label_one_week_mood.setText("No data found")
+            self.label_one_week_mood.setText("    No data\n     found")
         else:
             count = 0;
             data = [];
@@ -136,11 +136,11 @@ class Mood_Visual(QWidget, uw.Ui_Form):
             else:
                 self.label_one_week_mood.clear()
                 self.label_one_week_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
-                self.label_one_week_mood.setText("Data is\nnot enough")
+                self.label_one_week_mood.setText("  Data is\n  not enough")
     
 app = QtWidgets.QApplication(sys.argv)
 
 window = Mood_Visual()
 window.show()
 
-app.exec()
+sys.exit(app.exec_())
