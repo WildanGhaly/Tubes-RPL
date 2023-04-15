@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -10,7 +11,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 1371, 721))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap('../../tubes-rpl/mainmenu/mainmenu.jpg'))
+        self.label.setPixmap(QtGui.QPixmap("../../design/edit to 1366 x 720/main menu without button.jpg"))
         self.label.setObjectName("label")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(160, 230, 351, 161))
@@ -50,13 +51,22 @@ class Ui_MainWindow(object):
         self.pushButton_5.clicked.connect(self.printquotes)
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_6.setGeometry(QtCore.QRect(540, 560, 281, 121))
-        self.pushButton_6.setStyleSheet("background-image: url('../../tubes-rpl/mainmenu/quit.png');\n"
+        self.pushButton_6.setStyleSheet("background-image: url('../../tubes-rpl/mainmenu/historybutton.png');\n"
 "border: none;\n"
 "")
         self.pushButton_6.setText("")
         self.pushButton_6.setFlat(False)
         self.pushButton_6.setObjectName("pushButton_6")
-        self.pushButton_6.clicked.connect(MainWindow.close)
+        self.pushButton_6.clicked.connect(self.printhistory)
+        self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_7.setGeometry(QtCore.QRect(1180, 620, 161, 71))
+        self.pushButton_7.setStyleSheet("background-image: url('../../tubes-rpl/mainmenu/quit.png');\n"
+"border: none;\n"
+"")
+        self.pushButton_7.setText("")
+        self.pushButton_7.setFlat(False)
+        self.pushButton_7.setObjectName("pushButton_7")
+        self.pushButton_7.clicked.connect(MainWindow.close)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -65,7 +75,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        
+
     # Untuk test   
     def printmood(self):
         print("Mood udah bisa")
@@ -78,6 +88,10 @@ class Ui_MainWindow(object):
 
     def printquotes(self):
         print("Quotes udah bisa")
+        
+    def printhistory(self):
+        print("History udah bisa")
+
 
 if __name__ == "__main__":
     import sys
