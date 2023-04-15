@@ -14,7 +14,6 @@ class Ui_Widget(QWidget):
     def __init__(self):
         
         super().__init__()
-
         self.title='Sleep Input'
         self.left = 0
         self.top = 0
@@ -43,21 +42,8 @@ class Ui_Widget(QWidget):
         self.sleepViz.setSizePolicy(sizePolicy)
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
-        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time input fg.png)")
-        self.plainTextEdit = QPlainTextEdit(Widget)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))
-        self.plainTextEdit = QPlainTextEdit(Widget)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(680, 344, 275, 50))
-        self.plainTextEdit = QPlainTextEdit(Widget)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(730, 444, 225, 50))
+        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep recommendation fg.png)")
         
-        self.nextButton = QPushButton(Widget)
-        self.nextButton.setObjectName(u"nextButton")
-        self.nextButton.setGeometry(QRect(600, 547, 170, 72))
-        self.nextButton.setStyleSheet("QPushButton{background: transparent;}")
         self.retranslateUi(Widget)
 
         QMetaObject.connectSlotsByName(Widget)
@@ -67,7 +53,7 @@ class Ui_Widget(QWidget):
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
+        # self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
         self.sleepViz.setText("")
     # retranslateUi
     
