@@ -84,4 +84,4 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.mood_visual_select_date.setText(_translate("Form", "SELECT"))
-import resource_rc
+import Mood.resource_rc
