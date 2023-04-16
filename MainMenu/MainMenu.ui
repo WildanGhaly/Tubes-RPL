@@ -33,23 +33,6 @@
      <pixmap>../../design/edit to 1366 x 720/main menu without button.jpg</pixmap>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>250</y>
-      <width>301</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\mood-button.png&quot;);
-border: none;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
@@ -60,7 +43,7 @@ border: none;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\mood button.png&quot;);
+     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\moodbutton.png&quot;);
 border: none;
 </string>
     </property>
@@ -81,7 +64,7 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\journal button.png&quot;);
+     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\journalbutton.png&quot;);
 border: none;
 </string>
     </property>
@@ -102,7 +85,7 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\sleep button.png&quot;);
+     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\sleepbutton.png&quot;);
 border: none;
 </string>
     </property>
@@ -123,7 +106,7 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\quotes button.png&quot;);
+     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\quotesbutton.png&quot;);
 border: none;
 </string>
     </property>
@@ -144,7 +127,28 @@ border: none;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\keluar.png&quot;);
+     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\historybutton.png&quot;);
+border: none;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>620</y>
+      <width>161</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(&quot;D:\\JASON\\KULIAH ITB\\MATKUL\\SEMESTER 4\\Rekayasa Perangkat Lunak\\TUGAS BESAR APLIKASI\\Tubes-RPL\\MainMenu\\quit.png&quot;);
 border: none;
 </string>
     </property>
