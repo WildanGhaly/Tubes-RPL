@@ -1,11 +1,11 @@
-import resource_rc
-import ui_mood_visual as uw 
+import Mood.resource_rc
+import Mood.ui_mood_visual as uw 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QSizePolicy
 import sys
 from PyQt5 import QtWidgets
-from mood_service import Mood_Service
-from mood_pyqt_visual_calendar import Mood_Form_Calendar as mfc
+from Mood.mood_service import Mood_Service
+from Mood.mood_pyqt_visual_calendar import Mood_Form_Calendar as mfc
 import plotly.graph_objects as go
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,6 +16,7 @@ class Mood_Visual(QWidget, uw.Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.mood_visual_select_date.clicked.connect(self.do_something_select_date)
+        self.mood_visual_next.clicked.connect(self.do_something_next)
         
     def do_something_select_date(self):
         self.input_cal = mfc()
@@ -74,10 +75,10 @@ class Mood_Visual(QWidget, uw.Ui_Form):
             plt.grid(True)
             plt.tight_layout()
             plt.legend()
-            plt.savefig('./images/mood_visual_one_day_result.png')
+            plt.savefig('./Mood/images/mood_visual_one_day_result.png')
             
             self.label_one_day_mood.clear()
-            self.label_one_day_mood.setStyleSheet("border-image: url(./images/mood_visual_one_day_result.png);")
+            self.label_one_day_mood.setStyleSheet("border-image: url(./Mood/images/mood_visual_one_day_result.png);")
             
     def calculate_one_week(self):
         self.mood = Mood_Service()
@@ -130,17 +131,23 @@ class Mood_Visual(QWidget, uw.Ui_Form):
                     ax.plot(num, new_one_data, label=category[i])
 
                 ax.legend()
-                plt.savefig('./images/mood_visual_one_week_result.png')
+                plt.savefig('./Mood/images/mood_visual_one_week_result.png')
                 self.label_one_week_mood.clear()
-                self.label_one_week_mood.setStyleSheet("border-image: url(./images/mood_visual_one_week_result.png);")
+                self.label_one_week_mood.setStyleSheet("border-image: url(./Mood/images/mood_visual_one_week_result.png);")
             else:
                 self.label_one_week_mood.clear()
                 self.label_one_week_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")
                 self.label_one_week_mood.setText("  Data is\n  not enough")
+                
+    def do_something_next(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
+        self.hide()
     
-app = QtWidgets.QApplication(sys.argv)
+# app = QtWidgets.QApplication(sys.argv)
 
-window = Mood_Visual()
-window.show()
+# window = Mood_Visual()
+# window.show()
 
-sys.exit(app.exec_())
+# sys.exit(app.exec_())

@@ -1,4 +1,4 @@
-from mood import Mood as m
+from Mood.mood import Mood as m
 import csv
 import datetime
 
