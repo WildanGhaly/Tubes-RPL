@@ -43,7 +43,48 @@ class Ui_Widget(QWidget):
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
         self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep recommendation fg.png)")
+        self.chronoType = QLabel(Widget)
+        self.chronoType.setObjectName(u"chronoType")
+        self.chronoType.setEnabled(True)
+        self.chronoType.setGeometry(QRect(705, 293, 509, 155))
+        sizePolicy.setHeightForWidth(self.chronoType.sizePolicy().hasHeightForWidth())
+        self.chronoType.setSizePolicy(sizePolicy)
+        self.chronoType.setMinimumSize(QSize(0,0))
+        self.chronoType.setMaximumSize(QSize(1000,1000))
+        self.chronoType.setStyleSheet(u"background-image: url(:/newPrefix/vstock/bearChronoType.jpg)")
         
+        self.rec = QLabel(Widget)
+        self.rec.setObjectName(u"recommendation")
+        self.rec.setEnabled(True)
+        self.rec.setGeometry(QRect(715, 525, 509, 50))
+        sizePolicy.setHeightForWidth(self.rec.sizePolicy().hasHeightForWidth())
+        self.rec.setSizePolicy(sizePolicy)
+        self.rec.setStyleSheet("\n"
+            "font: 700 15pt \"Segoe Script\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
+        self.rec1 = QLabel(Widget)
+        self.rec1.setObjectName(u"recommendation")
+        self.rec1.setEnabled(True)
+        self.rec1.setGeometry(QRect(415, 635, 509, 50))
+        sizePolicy.setHeightForWidth(self.rec1.sizePolicy().hasHeightForWidth())
+        self.rec1.setSizePolicy(sizePolicy)
+        self.rec1.setStyleSheet("\n"
+            "font: 700 15pt \"Segoe Script\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
+        self.nextButton = QPushButton(Widget)
+        self.nextButton.setObjectName(u"nextButton")
+        self.nextButton.setGeometry(QRect(1175, 620, 170, 72))
+        self.nextButton.setStyleSheet("QPushButton{background: transparent}")
+        self.nextButton.clicked.connect(self.the_button_was_clicked)
+        
+        startSleepChart = PlotCanvasRec(self, width=5, height=4)
+        startSleepChart.move(153,257)
 
         self.retranslateUi(Widget)
 
@@ -51,10 +92,14 @@ class Ui_Widget(QWidget):
         
         self.show()
     # setupUi
-
+    def the_button_was_clicked(self):
+        print("Ke click AW")
     def retranslateUi(self, Widget):
+        self.test = u"You should sleep more"
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        # self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
+        self.rec.setText(QCoreApplication.translate("Widget", self.test, None))
+        self.rec1.setText(QCoreApplication.translate("Widget", self.test, None))
+        self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
         self.sleepViz.setText("")
     # retranslateUi
     
