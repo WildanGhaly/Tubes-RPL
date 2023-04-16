@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="Journal">
+    <file>background.jpg</file>
+    <file>journal input fg.png</file>
+    <file>journal list fg.png</file>
+  </qresource>
+</RCC>
