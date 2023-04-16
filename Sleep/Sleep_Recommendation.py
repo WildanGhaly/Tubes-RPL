@@ -44,7 +44,7 @@ class Ui_Widget(QWidget):
         self.sleepViz.setMaximumSize(QSize(1366, 720))
         self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep recommendation fg.png)")
         
-        
+
         self.retranslateUi(Widget)
 
         QMetaObject.connectSlotsByName(Widget)
