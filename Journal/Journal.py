@@ -20,14 +20,10 @@ class Journals:
             csvwriter = csv.writer(file, lineterminator="\n")
             csvwriter.writerow(self.DATABASE_HEADER)
 class Journal:
-    def __init__(self, journalElems : list[str]):   # input as csv
+    def __init__(self, journalElems : list[str]):   # input as csv (headers: ID, content, title)
         self.ID = journalElems[0]
         self.content = journalElems[1]
         self.title = journalElems[2]
-    # def __init__(self, journalObject):   # ctor
-    #     self.ID = journalObject.getID()
-    #     self.content = journalObject.content
-    #     self.title = journalObject.title
     def __str__(self):
         return (' '.join([self.ID, self.content, self.title]))
     def getID(self):
@@ -45,7 +41,7 @@ class Journal:
         menit = dtstr12char[10]+dtstr12char[11]
         ret = datetime.datetime(int(tahun),int(bulan),int(hari),int(jam),int(menit))
         return ret
-    def setID(self, ID=datetime.datetime.now()):
+    def markIDfromTime(self, ID=datetime.datetime.now()):
         ret = "%02d%02d%04d%02d%02d" % (
             ID.day,
             ID.month,
@@ -53,6 +49,9 @@ class Journal:
             ID.hour,
             ID.minute
         )
+        return ret
+    def setID(self, ID=markIDfromTime()):
+        ret = ID
         self.ID = ret
     def setContent(self, content="<EMPTY>"):
         ret = content
@@ -65,13 +64,18 @@ class Journal:
     def makeJournal():
         title = input()
         content = input()
-        ret = Journal(["000000000000", content, title])
-        ret.setID()
+        ret = Journal([Journal.markIDfromTime(), content, title])
         return ret
     def toCSV(self):
         return [self.ID, self.content, self.title]
 
-
+# Example 
+# ctor journals: membaca journal, dengan letak file yang sudah ditentukan
+# awal penggunaan journals, csv-nya akan kosong (hanya ada header)
 # tempJournals = Journals()
+
 # tempJournals.showJournals()
+
+# menambahkan 1 objek journal yang sudah disusun menyesuaikan format csv
+# makejournal() adalah fungsi menerima input journal dengan input keyboard via CLI
 # tempJournals.addJournal(Journal.makeJournal().toCSV())
