@@ -7,13 +7,17 @@ from PySide6.QtCore import (QCoreApplication, QDateTime,
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
 from PySide6 import QtWidgets
+from datetime import datetime, date
+from Sleep import Sleep
 
 from Sleep_Plot import *
 
-class Ui_Widget(QWidget):
+class Ui_Widget(QWidget, Sleep):
     def __init__(self):
         
         super().__init__()
+        __metaclass__ = Sleep
+        Sleep.__init__(self)
         self.title='Sleep Input'
         self.left = 0
         self.top = 0
@@ -46,23 +50,70 @@ class Ui_Widget(QWidget):
         self.plainTextEdit = QPlainTextEdit(Widget)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))
-        self.plainTextEdit = QPlainTextEdit(Widget)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(680, 344, 275, 50))
-        self.plainTextEdit = QPlainTextEdit(Widget)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(730, 444, 225, 50))
-        
+        self.plainTextEdit.setStyleSheet("\n"
+            "font: 700 18pt \"Segoe Script\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
+        self.plainTextEdit1 = QPlainTextEdit(Widget)
+        self.plainTextEdit1.setObjectName(u"plainTextEdit")
+        self.plainTextEdit1.setGeometry(QRect(680, 344, 275, 50))
+        self.plainTextEdit1.setStyleSheet("\n"
+            "font: 700 18pt \"Segoe Script\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
+        self.plainTextEdit2 = QPlainTextEdit(Widget)
+        self.plainTextEdit2.setObjectName(u"plainTextEdit")
+        self.plainTextEdit2.setGeometry(QRect(730, 444, 225, 50))
+        self.plainTextEdit2.setStyleSheet("\n"
+            "font: 700 18pt \"Segoe Script\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
         self.nextButton = QPushButton(Widget)
         self.nextButton.setObjectName(u"nextButton")
         self.nextButton.setGeometry(QRect(600, 547, 170, 72))
         self.nextButton.setStyleSheet("QPushButton{background: transparent;}")
+        self.nextButton.clicked.connect(self.the_button_was_clicked)
+        # self.nextButton.connect()
         self.retranslateUi(Widget)
-
         QMetaObject.connectSlotsByName(Widget)
         
         self.show()
     # setupUi
+    def the_button_was_clicked(self):
+        invalid = False
+        hasilData = []
+        self.startClock = self.plainTextEdit.toPlainText()
+        self.endClock = self.plainTextEdit1.toPlainText()
+        self.duration = self.plainTextEdit2.toPlainText()
+        self.dates = date.today().strftime("%d%m%Y")
+        self.dates += datetime.now().strftime("%H%M%S")
+        print(self.startClock)
+        # if((self.startClock.find('.') ==-1 or self.startClock.find(':') == -1) and (self.endClock.find('.') ==-1 or self.endClock.find(':') == -1)):
+        #     invalid = True
+        if self.startClock != '' and self.endClock != '' and self.duration != '':
+            hour = ''
+            minute = ''
+            for i in self.startClock:
+                if i== '.' or i==':':
+                    minute += i
+                hour  += i
+            # if not invalid:
+            hasilData.append(self.dates)
+            hasilData.append(hour)
+            hasilData.append(minute)
+            hasilData.append(self.duration)
+            Sleep.add_Sleep(self, hasilData)
+                
+        self.plainTextEdit.clear()
+        self.plainTextEdit1.clear()
+        self.plainTextEdit2.clear()
+        
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
@@ -73,6 +124,11 @@ class Ui_Widget(QWidget):
     def getDate(self):
         return self.dateEdit.dateTime()
 
+    # def sleepToInt(self, row):
+    #     return [
+    #         int(row[0]), int(row[1]), int(row[2]),
+    #         int(row[3])
+    #     ]
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
 
