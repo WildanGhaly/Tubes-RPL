@@ -21,3 +21,20 @@ class PlotCanvas(FigureCanvas):
         ax = self.figure.add_subplot(111)
         ax.plot(data,'r-')
         self.draw()
+        
+class PlotCanvasRec(FigureCanvas):
+    def __init__(self, parent = None, width=4, height=4, dpi=100):
+        fig = Figure(figsize=(width,height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+        
+        FigureCanvas.__init__(self,fig)
+        self.setParent(parent)
+        FigureCanvas.setSizePolicy(self, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        FigureCanvas.resize(self,508,310)
+        self.plot()
+        
+    def plot(self):
+        data = [random.random() for i in range (25)]
+        ax = self.figure.add_subplot(111)
+        ax.plot(data,'r-')
+        self.draw()
