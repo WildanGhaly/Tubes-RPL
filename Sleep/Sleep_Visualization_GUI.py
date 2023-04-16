@@ -47,14 +47,20 @@ class Ui_Widget(QWidget):
         self.nextButton = QPushButton(Widget)
         self.nextButton.setObjectName(u"nextButton")
         self.nextButton.setGeometry(QRect(1165, 617, 155, 72))
-        self.nextButton.setStyleSheet(u"background-image: url(:/newPrefix/vstock/next button.png)")
+        self.nextButton.setStyleSheet(u"QPushButton{background: transparent;}")
         
         font = QFont()
         font.setPointSize(20)
         # self.nextButton.setFont(font)
         self.dateEdit = QDateEdit(Widget)
         self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setGeometry(QRect(538, 500, 195, 45))
+        self.dateEdit.setGeometry(QRect(382, 630, 150, 45))
+        self.dateEdit.setStyleSheet("\n"
+            "font: 700 10pt \"Segoe Script\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
         #Start Sleep Chart
         startSleepChart = PlotCanvas(self, width=5, height=4)
         startSleepChart.move(149,265)
@@ -79,7 +85,7 @@ class Ui_Widget(QWidget):
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        self.nextButton.setText(QCoreApplication.translate("Widget", u"NEXT", None))
+        self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
         self.sleepViz.setText("")
     # retranslateUi
     
