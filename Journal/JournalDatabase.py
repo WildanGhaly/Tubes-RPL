@@ -1,5 +1,5 @@
 import csv
-import Journal
+import Journal.Journal as Journal
 class JournalDatabase:
     DATABASE_HEADER = ["Id(HHBBTTTTJJMM)","IsiJournal","JudulJournal"]
     def __init__(self):

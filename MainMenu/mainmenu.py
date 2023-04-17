@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from History.history_GUI import history_GUI as history_window
 from Mood.mood_pyqt import Mood_Form as mood_window
-# from Journal.journal import Ui_MainWindow as journal_window
+from Journal.JournalInput_Call import Journal_GUI_Call as journal_window
 from Sleep.Sleep_Input_GUI import Ui_Widget as sleep_window
 from Quotes.Choose_Call import Quotes_Choose_Call as quotes_window
 
@@ -92,6 +92,8 @@ class Ui_MainWindow(object):
 
     def printjournal(self):
         print("Journal udah bisa")
+        self.journal = journal_window()
+        self.journal.show()
         self.hide()
 
     def printsleep(self):

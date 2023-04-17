@@ -10,8 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
-import Journal
-import JournalDatabase
+from Journal.Journal import Journal as jrn
+import Journal.JournalDatabase as JournalDatabase
 class JournalInput(object):
     DB = JournalDatabase.JournalDatabase()
     def setupUi(self, MainWindow):
@@ -21,7 +21,7 @@ class JournalInput(object):
         MainWindow.setMaximumSize(QtCore.QSize(1920, 1080))
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-image: url(:/Journal/background.jpg);")
-        MainWindow.setAnimated(True)
+        # MainWindow.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(800, 600))
         self.centralwidget.setMaximumSize(QtCore.QSize(1920, 1080))
@@ -77,7 +77,7 @@ class JournalInput(object):
         self.SubmitButton.setFlat(True)
         self.SubmitButton.setObjectName("SubmitButton")
         self.SubmitButton.clicked.connect(self.addToJournalDB)
-        MainWindow.setCentralWidget(self.centralwidget)
+        # MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -90,16 +90,20 @@ class JournalInput(object):
         # do nothing
                 messagebox.showinfo("Failed", "Konten Jurnal kosong.")
         else : 
-                addedContent = Journal.Journal([Journal.Journal.DatetimeToID(),self.JournalContent.toPlainText(),"Title"+Journal.Journal.DatetimeToID()])
+                addedContent = jrn([jrn.DatetimeToID(),self.JournalContent.toPlainText(),"Title"+jrn.DatetimeToID()])
                 self.DB.addJournal(addedContent.toCSV())
                 messagebox.showinfo("Success", "Konten Jurnal ditambahkan.")
-import Journal_rc
+                from MainMenu.main_menu_GUI import Main_Menu_GUI
+                self.main_menu = Main_Menu_GUI()
+                self.main_menu.show()
+                self.hide()
+import Journal.Journal_rc
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = JournalInput()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = JournalInput()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())
