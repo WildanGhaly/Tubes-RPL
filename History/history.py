@@ -75,10 +75,16 @@ class Ui_MainWindows(object):
         print("Journal List bisa")
         self.hide()
     def sleepVisualization(self):
+        from Sleep.Sleep_Visualization_GUI import Ui_Widget as Visualization
         print("Sleep Visualization bisa")
+        self.visualization_window = Visualization()
+        self.visualization_window.show()
         self.hide()
     def sleepRecommendation(self):
+        from Sleep.Sleep_Recommendation import Ui_Widget as Recommendation
         print("Sleep Recommendation bisa")
+        self.recommendation_window = Recommendation()
+        self.recommendation_window.show()
         self.hide()
 
 

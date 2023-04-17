@@ -134,11 +134,7 @@ class Ui_Widget(QWidget, Sleep):
     def getDate(self):
         return self.dateEdit.dateTime()
 
-    # def sleepToInt(self, row):
-    #     return [
-    #         int(row[0]), int(row[1]), int(row[2]),
-    #         int(row[3])
-    #     ]
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
 
