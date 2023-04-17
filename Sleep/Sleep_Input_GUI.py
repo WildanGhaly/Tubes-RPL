@@ -1,5 +1,5 @@
 import sys
-import resource_rc
+import Sleep.resource_rc
 
 from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
@@ -8,9 +8,9 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
 from PyQt5 import QtWidgets
 from datetime import datetime, date
-from Sleep import Sleep
+from Sleep.Sleep import Sleep
 
-from Sleep_Plot import *
+from Sleep.Sleep_Plot import *
 
 class Ui_Widget(QWidget, Sleep):
     def __init__(self):
@@ -102,6 +102,10 @@ class Ui_Widget(QWidget, Sleep):
             hasilData.append(minute)
             hasilData.append(self.duration)
             Sleep.add_Sleep(self, hasilData)
+            from MainMenu.main_menu_GUI import Main_Menu_GUI
+            self.main_menu = Main_Menu_GUI()
+            self.main_menu.show()
+            self.hide()
                 
         self.plainTextEdit.clear()
         self.plainTextEdit1.clear()

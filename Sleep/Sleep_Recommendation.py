@@ -1,5 +1,5 @@
 import sys
-import resource_rc
+import Sleep.resource_rc
 
 from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
@@ -8,7 +8,7 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
 from PyQt5 import QtWidgets
 
-from Sleep_Plot import *
+from Sleep.Sleep_Plot import *
 
 class Ui_Widget(QWidget):
     def __init__(self):
@@ -75,6 +75,11 @@ class Ui_Widget(QWidget):
     # setupUi
     def the_button_was_clicked(self):
         print("Ke click AW")
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
+        self.hide()
+        
     def retranslateUi(self, Widget):
         self.test = u"You should sleep more"
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
