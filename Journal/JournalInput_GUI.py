@@ -9,9 +9,11 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-
+from tkinter import messagebox
+import Journal
+import JournalDatabase
 class JournalInput(object):
+    DB = JournalDatabase.JournalDatabase()
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1366, 800)
@@ -32,49 +34,49 @@ class JournalInput(object):
         self.widget.setAutoFillBackground(False)
         self.widget.setStyleSheet("image: url(:/Journal/journal input fg.png);")
         self.widget.setObjectName("widget")
-        self.scrollArea_2 = QtWidgets.QScrollArea(self.widget)
-        self.scrollArea_2.setGeometry(QtCore.QRect(130, 380, 1101, 271))
+        self.scrollArea = QtWidgets.QScrollArea(self.widget)
+        self.scrollArea.setGeometry(QtCore.QRect(130, 380, 1101, 271))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.scrollArea_2.sizePolicy().hasHeightForWidth())
-        self.scrollArea_2.setSizePolicy(sizePolicy)
-        self.scrollArea_2.setMinimumSize(QtCore.QSize(0, 0))
+        sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy)
+        self.scrollArea.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(12)
-        self.scrollArea_2.setFont(font)
-        self.scrollArea_2.setStyleSheet("background: transparent;\n"
+        self.scrollArea.setFont(font)
+        self.scrollArea.setStyleSheet("background: transparent;\n"
 "image: transparent;")
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollArea_2.setObjectName("scrollArea_2")
-        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1099, 269))
-        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents_2)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(0, 0, 1101, 271))
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.ScrollAreaWidgetContents = QtWidgets.QWidget()
+        self.ScrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1099, 269))
+        self.ScrollAreaWidgetContents.setObjectName("ScrollAreaWidgetContents")
+        self.JournalContent = QtWidgets.QPlainTextEdit(self.ScrollAreaWidgetContents)
+        self.JournalContent.setGeometry(QtCore.QRect(0, 0, 1101, 271))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.plainTextEdit_2.sizePolicy().hasHeightForWidth())
-        self.plainTextEdit_2.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.JournalContent.sizePolicy().hasHeightForWidth())
+        self.JournalContent.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(12)
-        self.plainTextEdit_2.setFont(font)
-        self.plainTextEdit_2.setPlaceholderText("")
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
-        self.pushButton_2 = QtWidgets.QPushButton(self.widget)
-        self.pushButton_2.setEnabled(True)
-        self.pushButton_2.setGeometry(QtCore.QRect(1060, 670, 171, 71))
-        self.pushButton_2.setAutoFillBackground(False)
-        self.pushButton_2.setStyleSheet("background: transparent;\n"
+        self.JournalContent.setFont(font)
+        self.JournalContent.setPlaceholderText("")
+        self.JournalContent.setObjectName("JournalContent")
+        self.scrollArea.setWidget(self.ScrollAreaWidgetContents)
+        self.SubmitButton = QtWidgets.QPushButton(self.widget)
+        self.SubmitButton.setEnabled(True)
+        self.SubmitButton.setGeometry(QtCore.QRect(1060, 670, 171, 71))
+        self.SubmitButton.setAutoFillBackground(False)
+        self.SubmitButton.setStyleSheet("background: transparent;\n"
 "image: transparent;")
-        self.pushButton_2.setText("")
-        self.pushButton_2.setFlat(True)
-        self.pushButton_2.setObjectName("pushButton_2")
-        # self.button_name.clicked.connect(self.function_name)
+        self.SubmitButton.setText("")
+        self.SubmitButton.setFlat(True)
+        self.SubmitButton.setObjectName("SubmitButton")
+        self.SubmitButton.clicked.connect(self.addToJournalDB)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -83,6 +85,14 @@ class JournalInput(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Journal Input"))
+    def addToJournalDB(self):
+        if self.JournalContent.toPlainText().strip()=="":
+        # do nothing
+                messagebox.showinfo("Failed", "Konten Jurnal kosong.")
+        else : 
+                addedContent = Journal.Journal([Journal.Journal.DatetimeToID(),self.JournalContent.toPlainText(),"Title"+Journal.Journal.DatetimeToID()])
+                self.DB.addJournal(addedContent.toCSV())
+                messagebox.showinfo("Success", "Konten Jurnal ditambahkan.")
 import Journal_rc
 
 if __name__ == "__main__":
