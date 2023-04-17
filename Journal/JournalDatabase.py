@@ -1,4 +1,5 @@
 import csv
+import Journal
 class JournalDatabase:
     DATABASE_HEADER = ["Id(HHBBTTTTJJMM)","IsiJournal","JudulJournal"]
     def __init__(self):
@@ -6,7 +7,7 @@ class JournalDatabase:
         with open(self.filename, 'r') as file:
             csvreader = csv.reader(file, lineterminator="\n")
             next(csvreader)  # Skip header row
-            self.journals = [Journal(row) for row in csvreader]
+            self.journals = [Journal.Journal(row) for row in csvreader]
     def showJournals(self):
         for i in self.journals:
             print(i)
