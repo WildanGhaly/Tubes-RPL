@@ -5,8 +5,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from History.history_GUI import history_GUI as history_window
 from Mood.mood_pyqt import Mood_Form as mood_window
 # from Journal.journal import Ui_MainWindow as journal_window
-from Sleep.Sleep_Input_GUI import Ui_Widget as sleep_window
-
+# from Sleep.Sleep_Visualization_GUI import Ui_Widget as sleep_window
+from Quotes.Choose_Call import Quotes_Choose_Call as quotes_window
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -102,6 +102,8 @@ class Ui_MainWindow(object):
 
     def printquotes(self):
         print("Quotes udah bisa")
+        self.quotes = quotes_window()
+        self.quotes.show()
         self.hide()
         
     def openInfo(self):
