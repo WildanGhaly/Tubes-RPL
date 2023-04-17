@@ -1,12 +1,12 @@
 import sys
 import resource_rc
 
-from PySide6.QtCore import (QCoreApplication, QDateTime,
+from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
-from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
-from PySide6 import QtWidgets
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
+from PyQt5 import QtWidgets
 
 from Sleep_Plot import *
 
@@ -27,38 +27,21 @@ class Ui_Widget(QWidget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
         Widget.resize(1366, 720)
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
-        Widget.setSizePolicy(sizePolicy)
-        Widget.setMinimumSize(QSize(1366, 720))
-        Widget.setMaximumSize(QSize(1366, 720))
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)
         self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
-        sizePolicy.setHeightForWidth(self.sleepViz.sizePolicy().hasHeightForWidth())
-        self.sleepViz.setSizePolicy(sizePolicy)
-        self.sleepViz.setMinimumSize(QSize(1366, 720))
-        self.sleepViz.setMaximumSize(QSize(1366, 720))
         self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep recommendation fg.png)")
         self.chronoType = QLabel(Widget)
         self.chronoType.setObjectName(u"chronoType")
         self.chronoType.setEnabled(True)
         self.chronoType.setGeometry(QRect(705, 293, 509, 155))
-        sizePolicy.setHeightForWidth(self.chronoType.sizePolicy().hasHeightForWidth())
-        self.chronoType.setSizePolicy(sizePolicy)
-        self.chronoType.setMinimumSize(QSize(0,0))
-        self.chronoType.setMaximumSize(QSize(1000,1000))
         self.chronoType.setStyleSheet(u"background-image: url(:/newPrefix/vstock/bearChronoType.jpg)")
         
         self.rec = QLabel(Widget)
         self.rec.setObjectName(u"recommendation")
         self.rec.setEnabled(True)
         self.rec.setGeometry(QRect(715, 525, 509, 50))
-        sizePolicy.setHeightForWidth(self.rec.sizePolicy().hasHeightForWidth())
-        self.rec.setSizePolicy(sizePolicy)
         self.rec.setStyleSheet("\n"
             "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
@@ -69,8 +52,6 @@ class Ui_Widget(QWidget):
         self.rec1.setObjectName(u"recommendation")
         self.rec1.setEnabled(True)
         self.rec1.setGeometry(QRect(415, 635, 509, 50))
-        sizePolicy.setHeightForWidth(self.rec1.sizePolicy().hasHeightForWidth())
-        self.rec1.setSizePolicy(sizePolicy)
         self.rec1.setStyleSheet("\n"
             "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
