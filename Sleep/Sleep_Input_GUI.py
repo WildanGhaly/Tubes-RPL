@@ -1,12 +1,12 @@
 import sys
 import resource_rc
 
-from PySide6.QtCore import (QCoreApplication, QDateTime,
+from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
-from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
-from PySide6 import QtWidgets
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
+from PyQt5 import QtWidgets
 from datetime import datetime, date
 from Sleep import Sleep
 
@@ -31,19 +31,12 @@ class Ui_Widget(QWidget, Sleep):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
         Widget.resize(1366, 720)
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
-        Widget.setSizePolicy(sizePolicy)
         Widget.setMinimumSize(QSize(1366, 720))
         Widget.setMaximumSize(QSize(1366, 720))
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)
         self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
-        sizePolicy.setHeightForWidth(self.sleepViz.sizePolicy().hasHeightForWidth())
-        self.sleepViz.setSizePolicy(sizePolicy)
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
         self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time input fg.png)")
@@ -51,7 +44,7 @@ class Ui_Widget(QWidget, Sleep):
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))
         self.plainTextEdit.setStyleSheet("\n"
-            "font: 700 18pt \"Segoe Script\";\n"
+            "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
             "selection-color: rgb(170, 0, 0);\n"
             "selection-background-color: rgb(170, 0, 0);\n"
@@ -60,7 +53,7 @@ class Ui_Widget(QWidget, Sleep):
         self.plainTextEdit1.setObjectName(u"plainTextEdit")
         self.plainTextEdit1.setGeometry(QRect(680, 344, 275, 50))
         self.plainTextEdit1.setStyleSheet("\n"
-            "font: 700 18pt \"Segoe Script\";\n"
+            "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
             "selection-color: rgb(170, 0, 0);\n"
             "selection-background-color: rgb(170, 0, 0);\n"
@@ -69,7 +62,7 @@ class Ui_Widget(QWidget, Sleep):
         self.plainTextEdit2.setObjectName(u"plainTextEdit")
         self.plainTextEdit2.setGeometry(QRect(730, 444, 225, 50))
         self.plainTextEdit2.setStyleSheet("\n"
-            "font: 700 18pt \"Segoe Script\";\n"
+            "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
             "selection-color: rgb(170, 0, 0);\n"
             "selection-background-color: rgb(170, 0, 0);\n"

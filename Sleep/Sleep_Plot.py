@@ -1,7 +1,7 @@
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as py
-from PySide6.QtWidgets import QSizePolicy
+from PyQt5.QtWidgets import QSizePolicy
 
 import random
 
@@ -12,7 +12,6 @@ class PlotCanvas(FigureCanvas):
         
         FigureCanvas.__init__(self,fig)
         self.setParent(parent)
-        FigureCanvas.setSizePolicy(self, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         FigureCanvas.resize(self,330,300)
         self.plot()
         
@@ -29,7 +28,6 @@ class PlotCanvasRec(FigureCanvas):
         
         FigureCanvas.__init__(self,fig)
         self.setParent(parent)
-        FigureCanvas.setSizePolicy(self, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         FigureCanvas.resize(self,508,310)
         self.plot()
         
