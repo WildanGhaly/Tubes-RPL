@@ -41,7 +41,7 @@ class Journal:
         menit = dtstr12char[10]+dtstr12char[11]
         ret = datetime.datetime(int(tahun),int(bulan),int(hari),int(jam),int(menit))
         return ret
-    def markIDfromTime(self, ID=datetime.datetime.now()):
+    def DatetimeToID(ID=datetime.datetime.now()):
         ret = "%02d%02d%04d%02d%02d" % (
             ID.day,
             ID.month,
@@ -50,7 +50,7 @@ class Journal:
             ID.minute
         )
         return ret
-    def setID(self, ID=markIDfromTime()):
+    def setID(self, ID=DatetimeToID()):
         ret = ID
         self.ID = ret
     def setContent(self, content="<EMPTY>"):
@@ -64,7 +64,7 @@ class Journal:
     def makeJournal():
         title = input()
         content = input()
-        ret = Journal([Journal.markIDfromTime(), content, title])
+        ret = Journal([Journal.DatetimeToID(), content, title])
         return ret
     def toCSV(self):
         return [self.ID, self.content, self.title]
