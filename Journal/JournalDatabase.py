@@ -19,6 +19,8 @@ class JournalDatabase:
         with open(self.filename, 'w') as file:
             csvwriter = csv.writer(file, lineterminator="\n")
             csvwriter.writerow(self.DATABASE_HEADER)
+    def isEmpty(self):
+        return len(self.journals) == 0
 
 # Example 
 # ctor journals: membaca journal, dengan letak file yang sudah ditentukan
