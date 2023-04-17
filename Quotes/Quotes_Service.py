@@ -1,4 +1,4 @@
-import Quotes as Q
+import Quotes.Quotes as Q
 import csv
 import random
 

@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import Quotes_Service as QS
+import Quotes.Quotes_Service as QS
 
 
 class QChoose(QS.Quotes_Service):
@@ -42,14 +42,14 @@ class QChoose(QS.Quotes_Service):
         self.edit_choose.setObjectName("edit_choose")
         self.edit_choose.clicked.connect(self.edit)
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        # MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
+        # MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        # MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -60,18 +60,27 @@ class QChoose(QS.Quotes_Service):
 
     def add(self):
         print("add")
+        from Quotes.Quotes_Input_Call import Quotes_Input_Call
+        self.add_quotes_window = Quotes_Input_Call()
+        self.add_quotes_window.show()
+        self.hide()
+        
 
     def edit(self):
         print("edit")
+        from Quotes.Quotes_edit_Call import Quotes_Edit_Call
+        self.add_quotes_window = Quotes_Edit_Call()
+        self.add_quotes_window.show()
+        self.hide()
 
 
-import rc_choose
+import Quotes.rc_choose
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = QChoose()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = QChoose()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())
