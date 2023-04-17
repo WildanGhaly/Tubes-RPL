@@ -5,7 +5,7 @@ from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
 from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit, QMessageBox)
 from PyQt5 import QtWidgets
 from datetime import datetime, date
 from Sleep import Sleep
@@ -80,6 +80,8 @@ class Ui_Widget(QWidget, Sleep):
     # setupUi
     def the_button_was_clicked(self):
         invalid = False
+        hourdone=False
+        count = 0
         hasilData = []
         self.startClock = self.plainTextEdit.toPlainText()
         self.endClock = self.plainTextEdit1.toPlainText()
@@ -93,15 +95,30 @@ class Ui_Widget(QWidget, Sleep):
             hour = ''
             minute = ''
             for i in self.startClock:
-                if i== '.' or i==':':
+                if(i=="." or i=="."):
+                    hourdone =True
+                    continue
+                if not hourdone:
+                    count+=1
                     minute += i
-                hour  += i
-            # if not invalid:
-            hasilData.append(self.dates)
-            hasilData.append(hour)
-            hasilData.append(minute)
-            hasilData.append(self.duration)
-            Sleep.add_Sleep(self, hasilData)
+                if(hourdone):
+                    count+=1
+                    hour  += i
+                else:
+                    pass
+            print(count)
+            if count == 4 and hourdone:
+                hasilData.append(self.dates)
+                hasilData.append(hour)
+                hasilData.append(minute)
+                hasilData.append(self.duration)
+                Sleep.add_Sleep(self, hasilData)
+            else:
+                msg = QMessageBox()
+                msg.setWindowTitle("Warning")
+                msg.setText("Invalid time\n Format: HH.MM atau HH:MM")
+                msg.setIcon(QMessageBox.Critical)
+                msg.exec_()
                 
         self.plainTextEdit.clear()
         self.plainTextEdit1.clear()
