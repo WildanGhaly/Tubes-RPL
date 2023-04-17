@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QFont
-import Quotes_Service as QS
+import Quotes.Quotes_Service as QS
 import tkinter as tk
 from tkinter import messagebox
 from PyQt5.QtCore import QRect, QPropertyAnimation
@@ -48,14 +48,14 @@ class QInput(QS.Quotes_Service):
         self.input.setFont(font)
 
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        # MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
+        # MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        # MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -69,15 +69,19 @@ class QInput(QS.Quotes_Service):
             if self.add_quote(self.input.toPlainText()):
                 messagebox.showinfo("Success", "Quote berhasil ditambahkan.")
                 self.input.setText("")
+                from MainMenu.main_menu_GUI import Main_Menu_GUI
+                self.main_menu = Main_Menu_GUI()
+                self.main_menu.show()
+                self.hide()
 
-import rc_input
+import Quotes.rc_input
 # import QI_rc
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = QInput()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = QInput()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())
