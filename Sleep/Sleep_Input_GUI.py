@@ -1,16 +1,16 @@
 import sys
-import resource_rc
+import Sleep.resource_rc
 
-from PySide6.QtCore import (QCoreApplication, QDateTime,
+from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
-from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
-from PySide6 import QtWidgets
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit, QMessageBox)
+from PyQt5 import QtWidgets
 from datetime import datetime, date
-from Sleep import Sleep
+from Sleep.Sleep import Sleep
 
-from Sleep_Plot import *
+from Sleep.Sleep_Plot import *
 
 class Ui_Widget(QWidget, Sleep):
     def __init__(self):
@@ -31,19 +31,12 @@ class Ui_Widget(QWidget, Sleep):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
         Widget.resize(1366, 720)
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
-        Widget.setSizePolicy(sizePolicy)
         Widget.setMinimumSize(QSize(1366, 720))
         Widget.setMaximumSize(QSize(1366, 720))
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)
         self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
-        sizePolicy.setHeightForWidth(self.sleepViz.sizePolicy().hasHeightForWidth())
-        self.sleepViz.setSizePolicy(sizePolicy)
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
         self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time input fg.png)")
@@ -51,7 +44,7 @@ class Ui_Widget(QWidget, Sleep):
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))
         self.plainTextEdit.setStyleSheet("\n"
-            "font: 700 18pt \"Segoe Script\";\n"
+            "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
             "selection-color: rgb(170, 0, 0);\n"
             "selection-background-color: rgb(170, 0, 0);\n"
@@ -60,7 +53,7 @@ class Ui_Widget(QWidget, Sleep):
         self.plainTextEdit1.setObjectName(u"plainTextEdit")
         self.plainTextEdit1.setGeometry(QRect(680, 344, 275, 50))
         self.plainTextEdit1.setStyleSheet("\n"
-            "font: 700 18pt \"Segoe Script\";\n"
+            "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
             "selection-color: rgb(170, 0, 0);\n"
             "selection-background-color: rgb(170, 0, 0);\n"
@@ -69,7 +62,7 @@ class Ui_Widget(QWidget, Sleep):
         self.plainTextEdit2.setObjectName(u"plainTextEdit")
         self.plainTextEdit2.setGeometry(QRect(730, 444, 225, 50))
         self.plainTextEdit2.setStyleSheet("\n"
-            "font: 700 18pt \"Segoe Script\";\n"
+            "font: 700 15pt \"Segoe Script\";\n"
             "alternate-background-color: rgb(255, 85, 0);\n"
             "selection-color: rgb(170, 0, 0);\n"
             "selection-background-color: rgb(170, 0, 0);\n"
@@ -87,6 +80,8 @@ class Ui_Widget(QWidget, Sleep):
     # setupUi
     def the_button_was_clicked(self):
         invalid = False
+        hourdone=False
+        count = 0
         hasilData = []
         self.startClock = self.plainTextEdit.toPlainText()
         self.endClock = self.plainTextEdit1.toPlainText()
@@ -100,15 +95,34 @@ class Ui_Widget(QWidget, Sleep):
             hour = ''
             minute = ''
             for i in self.startClock:
-                if i== '.' or i==':':
+                if(i=="." or i=="."):
+                    hourdone =True
+                    continue
+                if not hourdone:
+                    count+=1
                     minute += i
-                hour  += i
-            # if not invalid:
-            hasilData.append(self.dates)
-            hasilData.append(hour)
-            hasilData.append(minute)
-            hasilData.append(self.duration)
-            Sleep.add_Sleep(self, hasilData)
+                if(hourdone):
+                    count+=1
+                    hour  += i
+                else:
+                    pass
+            print(count)
+            if count == 4 and hourdone:
+                hasilData.append(self.dates)
+                hasilData.append(hour)
+                hasilData.append(minute)
+                hasilData.append(self.duration)
+                Sleep.add_Sleep(self, hasilData)
+                from MainMenu.main_menu_GUI import Main_Menu_GUI
+                self.main_menu = Main_Menu_GUI()
+                self.main_menu.show()
+                self.hide()
+            else:
+                msg = QMessageBox()
+                msg.setWindowTitle("Warning")
+                msg.setText("Invalid time\n Format: HH.MM atau HH:MM")
+                msg.setIcon(QMessageBox.Critical)
+                msg.exec_()
                 
         self.plainTextEdit.clear()
         self.plainTextEdit1.clear()
@@ -124,15 +138,11 @@ class Ui_Widget(QWidget, Sleep):
     def getDate(self):
         return self.dateEdit.dateTime()
 
-    # def sleepToInt(self, row):
-    #     return [
-    #         int(row[0]), int(row[1]), int(row[2]),
-    #         int(row[3])
-    #     ]
-if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
 
-    window = Ui_Widget()
-    window.show()
+# if __name__ == '__main__':
+#     app = QtWidgets.QApplication(sys.argv)
 
-    app.exec()
+#     window = Ui_Widget()
+#     window.show()
+
+#     app.exec()

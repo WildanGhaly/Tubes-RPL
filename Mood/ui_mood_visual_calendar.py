@@ -62,4 +62,4 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "TextLabel"))
         self.calendar_mood_visual_ok.setText(_translate("Dialog", "OK"))
         self.calendar_mood_visual_cancel.setText(_translate("Dialog", "CANCEL"))
-import resource_rc
+import Mood.resource_rc
