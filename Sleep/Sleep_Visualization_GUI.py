@@ -1,12 +1,12 @@
 import sys
 import resource_rc
 
-from PySide6.QtCore import (QCoreApplication, QDateTime,
+from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
-from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
-from PySide6 import QtWidgets
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
+from PyQt5 import QtWidgets
 
 from Sleep_Plot import *
 
