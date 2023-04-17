@@ -1,11 +1,11 @@
-import resource_rc
-import ui_mood_prediction as uw 
+import Mood.resource_rc
+import Mood.ui_mood_prediction as uw 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QSizePolicy
 import sys
 from PyQt5 import QtWidgets
 from datetime import date, datetime
-from mood_service import Mood_Service
+from Mood.mood_service import Mood_Service
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -14,7 +14,14 @@ class Mood_Prediction(QWidget, uw.Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.calculate_mood_prediction()
-        
+        self.mood_prediction_next_button.clicked.connect(self.do_something_next)
+    
+    def do_something_next(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI as uw
+        self.main_menu = uw()
+        self.main_menu.show()
+        self.hide()
+    
     def calculate_mood_prediction(self):
         self.mood = Mood_Service()
         dateNow = date.today().strftime("%Y%m%d")
@@ -66,9 +73,9 @@ class Mood_Prediction(QWidget, uw.Ui_Form):
 
             plt.gca().invert_xaxis()
             ax.legend()
-            plt.savefig('./images/mood_visual_fifteen_days_result.png')
+            plt.savefig('./Mood/images/mood_visual_fifteen_days_result.png')
             self.mood_prediction_graph.clear()
-            self.mood_prediction_graph.setStyleSheet("border-image: url(./images/mood_visual_fifteen_days_result.png);")
+            self.mood_prediction_graph.setStyleSheet("border-image: url(./Mood/images/mood_visual_fifteen_days_result.png);")
             self.show_mood_prediction()
             
         else:
@@ -97,14 +104,14 @@ class Mood_Prediction(QWidget, uw.Ui_Form):
         plt.grid(True)
         plt.tight_layout()
         plt.legend()
-        plt.savefig('./images/mood_prediction_result.png')
+        plt.savefig('./Mood/images/mood_prediction_result.png')
         
         self.mood_prediction_label.clear()
-        self.mood_prediction_label.setStyleSheet("border-image: url(./images/mood_prediction_result.png);")
+        self.mood_prediction_label.setStyleSheet("border-image: url(./Mood/images/mood_prediction_result.png);")
                 
-app = QtWidgets.QApplication(sys.argv)
+# app = QtWidgets.QApplication(sys.argv)
 
-window = Mood_Prediction()
-window.show()
+# window = Mood_Prediction()
+# window.show()
 
-sys.exit(app.exec_())
+# sys.exit(app.exec_())

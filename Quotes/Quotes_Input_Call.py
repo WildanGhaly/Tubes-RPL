@@ -1,16 +1,21 @@
-import Mood.resource_rc
-import Mood.ui_mood_visual_calendar as uw 
+import Quotes.rc_input
+import Quotes.Quotes_Input_GUI as uw 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout,QSizePolicy
 import sys
 from PyQt5 import QtWidgets
 from datetime import date, datetime
-from Mood.mood_service import Mood_Service
 
-class Mood_Form_Calendar(QWidget, uw.Ui_Dialog):
+class Quotes_Input_Call(QWidget, uw.QInput):
     
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-    
-        
+
+# app = QtWidgets.QApplication(sys.argv)
+
+# MainWindow = Sleep_Input_Call()
+# MainWindow.show()
+
+
+# sys.exit(app.exec_())

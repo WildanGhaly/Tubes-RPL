@@ -3,7 +3,7 @@ import csv
 class Mood:
     # Konstruktor
     def __init__(self):
-        self.filename = './mood.csv'
+        self.filename = 'Mood/mood.csv'
         with open(self.filename, 'r') as file:
             csvreader = csv.reader(file)
             next(csvreader)  # Skip header row

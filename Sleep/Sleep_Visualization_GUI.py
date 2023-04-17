@@ -1,14 +1,14 @@
 import sys
-import resource_rc
+import Sleep.resource_rc
 
-from PySide6.QtCore import (QCoreApplication, QDateTime,
+from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
-from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
-from PySide6 import QtWidgets
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
+from PyQt5 import QtWidgets
 
-from Sleep_Plot import *
+from Sleep.Sleep_Plot import *
 
 class Ui_Widget(QWidget):
     def __init__(self):
@@ -48,6 +48,7 @@ class Ui_Widget(QWidget):
         self.nextButton.setObjectName(u"nextButton")
         self.nextButton.setGeometry(QRect(1165, 617, 155, 72))
         self.nextButton.setStyleSheet(u"QPushButton{background: transparent;}")
+        self.nextButton.clicked.connect(self.next)
         
         font = QFont()
         font.setPointSize(20)
@@ -91,6 +92,12 @@ class Ui_Widget(QWidget):
     
     def getDate(self):
         return self.dateEdit.dateTime()
+
+    def next(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
+        self.hide()
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
