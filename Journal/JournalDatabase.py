@@ -2,6 +2,7 @@ import csv
 import Journal.Journal as Journal
 class JournalDatabase:
     DATABASE_HEADER = ["Id(HHBBTTTTJJMM)","IsiJournal","JudulJournal"]
+    DATABASE_ITR = 0
     def __init__(self):
         self.filename = './Journal/Journal.csv'
         with open(self.filename, 'r') as file:
