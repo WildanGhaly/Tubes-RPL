@@ -20,15 +20,15 @@ class Journal:
         tahun = dtstr12char[4]+dtstr12char[5]+dtstr12char[6]+dtstr12char[7]
         jam = dtstr12char[8]+dtstr12char[9]
         menit = dtstr12char[10]+dtstr12char[11]
-        ret = datetime.datetime(int(tahun),int(bulan),int(hari),int(jam),int(menit))
+        ret = datetime.datetime(int(tahun),int(bulan),int(hari))
         return ret
     def DatetimeToID(ID=datetime.datetime.now()):
-        ret = "%02d%02d%04d%02d%02d" % (
-            ID.day,
-            ID.month,
+        ret = "%04d%02d%02d" % (
             ID.year,
-            ID.hour,
-            ID.minute
+            ID.month,
+            ID.day
+            # ID.hour,
+            # ID.minute
         )
         return ret
     def setID(self, ID=DatetimeToID()):

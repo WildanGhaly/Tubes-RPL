@@ -22,6 +22,11 @@ class JournalDatabase:
             csvwriter.writerow(self.DATABASE_HEADER)
     def isEmpty(self):
         return len(self.journals) == 0
+    def findJournal(self, ID):
+        for i in self.journals:
+            if i.getID() == ID:
+                return i.getContent()
+        return None
 
 # Example 
 # ctor journals: membaca journal, dengan letak file yang sudah ditentukan
