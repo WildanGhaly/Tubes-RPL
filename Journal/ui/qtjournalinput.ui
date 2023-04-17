@@ -70,7 +70,7 @@ image: transparent;</string>
     <property name="styleSheet">
      <string notr="true">image: url(:/Journal/journal input fg.png);</string>
     </property>
-    <widget class="QScrollArea" name="scrollArea_2">
+    <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -104,7 +104,7 @@ image: transparent;</string>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+     <widget class="QWidget" name="ScrollAreaWidgetContents">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -113,7 +113,7 @@ image: transparent;</string>
         <height>269</height>
        </rect>
       </property>
-      <widget class="QPlainTextEdit" name="plainTextEdit_2">
+      <widget class="QPlainTextEdit" name="JournalContent">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -140,7 +140,7 @@ image: transparent;</string>
       </widget>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="SubmitButton">
      <property name="enabled">
       <bool>true</bool>
      </property>
