@@ -113,6 +113,10 @@ class Ui_Widget(QWidget, Sleep):
                 hasilData.append(minute)
                 hasilData.append(self.duration)
                 Sleep.add_Sleep(self, hasilData)
+                from MainMenu.main_menu_GUI import Main_Menu_GUI
+                self.main_menu = Main_Menu_GUI()
+                self.main_menu.show()
+                self.hide()
             else:
                 msg = QMessageBox()
                 msg.setWindowTitle("Warning")
