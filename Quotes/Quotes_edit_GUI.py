@@ -13,7 +13,7 @@ from PyQt5.QtWidgets import QVBoxLayout, QWidget
 from PyQt5.QtGui import QFont
 from tkinter import messagebox
 import csv
-import Quotes_Service as QS
+import Quotes.Quotes_Service as QS
 
 
 class QEdit(QS.Quotes_Service):
@@ -57,20 +57,20 @@ class QEdit(QS.Quotes_Service):
         self.Submit.clicked.connect(self.edit_quote_submit)
 
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        # MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
+        # MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        # MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def adding_quotes_Cbox(self):
-        with open('Quotes.csv', 'r') as csvfile:  # Replace with the name of your CSV file
+        with open('Quotes/Quotes.csv', 'r') as csvfile:  # Replace with the name of your CSV file
             reader = csv.reader(csvfile)
             next(reader)
             for row in reader:
@@ -89,15 +89,20 @@ class QEdit(QS.Quotes_Service):
             self.new_quotes.setText("")
             self.quotes_list.clear()
             self.adding_quotes_Cbox()
+            from MainMenu.main_menu_GUI import Main_Menu_GUI as Main_Menu
+            self.main_menu = Main_Menu()
+            self.main_menu.show()
+            self.hide()
+            
 
             
-import rc_edit
+import Quotes.rc_edit
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = QEdit()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = QEdit()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())
