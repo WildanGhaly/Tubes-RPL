@@ -1,7 +1,7 @@
 import csv
 import Journal.Journal as Journal
 class JournalDatabase:
-    DATABASE_HEADER = ["Id(HHBBTTTTJJMM)","IsiJournal","JudulJournal"]
+    DATABASE_HEADER = ["Id","IsiJournal","JudulJournal"]
     DATABASE_ITR = 0
     def __init__(self):
         self.filename = './Journal/Journal.csv'
@@ -23,7 +23,7 @@ class JournalDatabase:
     def isEmpty(self):
         return len(self.journals) == 0
     def findJournal(self, ID):
-        for i in self.journals:
+        for i in reversed(self.journals):
             if i.getID() == ID:
                 return i.getContent()
         return None

@@ -18,8 +18,6 @@ class Journal:
         hari = dtstr12char[0]+dtstr12char[1]
         bulan = dtstr12char[2]+dtstr12char[3]
         tahun = dtstr12char[4]+dtstr12char[5]+dtstr12char[6]+dtstr12char[7]
-        jam = dtstr12char[8]+dtstr12char[9]
-        menit = dtstr12char[10]+dtstr12char[11]
         ret = datetime.datetime(int(tahun),int(bulan),int(hari))
         return ret
     def DatetimeToID(ID=datetime.datetime.now()):
@@ -48,4 +46,4 @@ class Journal:
         ret = Journal([Journal.DatetimeToID(), content, title])
         return ret
     def toCSV(self):
-        return [self.ID, self.content, self.title]
+        return [self.ID, self.content.replace('\n','\\n').replace('\t','\\t'), self.title]

@@ -67,7 +67,7 @@ image: transparent;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QTableWidget" name="contentView">
+     <widget class="QLabel" name="contentView">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -76,15 +76,21 @@ image: transparent;</string>
         <height>267</height>
        </rect>
       </property>
-      <property name="gridStyle">
-       <enum>Qt::NoPen</enum>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
-      <property name="rowCount">
-       <number>0</number>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
       </property>
-      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-       <bool>false</bool>
-      </attribute>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>10</number>
+      </property>
      </widget>
     </widget>
     <widget class="QPushButton" name="dRight">
