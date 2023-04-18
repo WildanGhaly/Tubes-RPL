@@ -7,19 +7,21 @@ from PyQt5.QtCore import (QCoreApplication, QDateTime,
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget)
 from PyQt5 import QtWidgets
-
+from Sleep.Sleep import Sleep
 from Sleep.Sleep_Plot import *
 
-class Ui_Widget(QWidget):
+class Ui_Widget(QWidget, Sleep):
     def __init__(self):
         
         super().__init__()
+        Sleep.__init__(self)
         self.title='Sleep'
         self.left = 0
         self.top = 0
         self.width = 1366
         self.height = 720
         self.setupUi(self)
+        
     
     def setupUi(self, Widget):
         self.setWindowTitle(self.title)
@@ -63,17 +65,24 @@ class Ui_Widget(QWidget):
             "selection-background-color: rgb(170, 0, 0);\n"
             "border-color: rgb(0, 0, 0);\n")
         #Start Sleep Chart
-        startSleepChart = PlotCanvas(self, width=5, height=4)
-        startSleepChart.move(149,265)
+        date = self.dateEdit.date()
         
+        date.toString()
+        start = self.getWeekStartSleepHour(id=None)
+        startSleepChart = PlotCanvas(self , 4, 4, 100, start)
+        startSleepChart.move(149,265)
+        self.startPlot = QWidget(startSleepChart)
+        self.startPlot.setObjectName(u"Start Chart")
+        self.startPlot.setGeometry(QRect(149,265,330,300))
         #Duration Sleep Chart
-        durationSleep = PlotCanvas(self, width=5, height=4)
+        dur = self.getWeekSleepDuration(id=None)
+        durationSleep = PlotCanvas(self , 4, 4, 100, dur)
         durationSleep.move(520,265)
 
         #endSleepChart
-        endSleepChart = PlotCanvas(self, width=5, height=4)
+        end = self.getWeekEndSleepHour(id=None)
+        endSleepChart = PlotCanvas(self , 4, 4, 100, end)
         endSleepChart.move(890,265)
-        
         # self.nextButton.raise_()
         self.dateEdit.raise_()
 
