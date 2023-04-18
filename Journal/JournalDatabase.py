@@ -1,7 +1,8 @@
 import csv
 import Journal.Journal as Journal
 class JournalDatabase:
-    DATABASE_HEADER = ["Id(HHBBTTTTJJMM)","IsiJournal","JudulJournal"]
+    DATABASE_HEADER = ["Id","IsiJournal","JudulJournal"]
+    DATABASE_ITR = 0
     def __init__(self):
         self.filename = './Journal/Journal.csv'
         with open(self.filename, 'r') as file:
@@ -21,6 +22,11 @@ class JournalDatabase:
             csvwriter.writerow(self.DATABASE_HEADER)
     def isEmpty(self):
         return len(self.journals) == 0
+    def findJournal(self, ID):
+        for i in reversed(self.journals):
+            if i.getID() == ID:
+                return i.getContent()
+        return None
 
 # Example 
 # ctor journals: membaca journal, dengan letak file yang sudah ditentukan

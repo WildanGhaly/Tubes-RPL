@@ -72,6 +72,9 @@ class Ui_MainWindows(object):
         self.mood_prediction.show()
         self.hide()
     def journalList(self):
+        from Journal.JournalList_Call import Journal_GUI_Call as JournalList
+        self.JournalListWindow = JournalList()
+        self.JournalListWindow.show()
         print("Journal List bisa")
         self.hide()
     def sleepVisualization(self):

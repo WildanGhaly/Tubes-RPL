@@ -1,3 +1,3 @@
-Id(HHBBTTTTJJMM),IsiJournal,JudulJournal
-"170420231622","sample input","Title170420231622"
-"170420231623","Sample input x","Title170420231623"
+Id,IsiJournal,JudulJournal
+"20230418","Sample\n\nSampleSample\tSample","Title20230418"
+"20230418","The content of the journal from today should change","Title20230418"
