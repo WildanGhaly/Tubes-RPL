@@ -7,13 +7,14 @@ from PyQt5.QtCore import (QCoreApplication, QDateTime,
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
 from PyQt5 import QtWidgets
-
+from Sleep.Sleep import Sleep
 from Sleep.Sleep_Plot import *
 
-class Ui_Widget(QWidget):
+class Ui_Widget(QWidget, Sleep):
     def __init__(self):
         
         super().__init__()
+        Sleep.__init__(self)
         self.title='Sleep Input'
         self.left = 0
         self.top = 0
@@ -63,9 +64,9 @@ class Ui_Widget(QWidget):
         self.nextButton.setGeometry(QRect(1175, 620, 170, 72))
         self.nextButton.setStyleSheet("QPushButton{background: transparent}")
         self.nextButton.clicked.connect(self.the_button_was_clicked)
-        
-        startSleepChart = PlotCanvasRec(self, width=5, height=4)
-        startSleepChart.move(153,257)
+        data = self.getWeekSleepDuration(id = None)
+        startDuration = PlotCanvasRec(self , 4, 4, 100, data)
+        startDuration.move(153,257)
 
         self.retranslateUi(Widget)
 
