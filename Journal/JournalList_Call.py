@@ -16,6 +16,7 @@ class Journal_GUI_Call(QWidget, uw.JournalList, JournalDatabase):
         self.dateChoose.clicked.connect(self.chooseDate)
         self.dRight.clicked.connect(self.do_something_right)
         self.dLeft.clicked.connect(self.do_something_left)
+        self.next.clicked.connect(self.backButton)
     def chooseDate(self):
         self.dateChoice = mfc()
         self.dateChoice.show()
@@ -31,12 +32,13 @@ class Journal_GUI_Call(QWidget, uw.JournalList, JournalDatabase):
         self.date_choosen = self.dateChoose.text().replace("-","")
         self.journal_text = self.findJournal(self.date_choosen)
         
-        print(self.journal_text)
         if (self.journal_text == None):
-            # TIDO set text di label (buat label dulu)
+            print("Empty Journal or No Journal on that day")
+            self.contentView.setText("NoContent")
             pass
         else:
-            # TIDO set text di label (buat label dulu)
+            print(self.journal_text.replace('\\n','\n').replace('\\t','\t'))
+            self.contentView.setText(self.journal_text.replace('\\n','\n').replace('\\t','\t'))
             pass
         
     def do_something_right(self):
@@ -53,6 +55,11 @@ class Journal_GUI_Call(QWidget, uw.JournalList, JournalDatabase):
         date_string = previous_date.toString(Qt.ISODate)
         self.dateChoose.setText(date_string)
         self.calculate_journal()
+    def backButton(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
+        self.hide()
 
 
 # app = QtWidgets.QApplication(sys.argv)

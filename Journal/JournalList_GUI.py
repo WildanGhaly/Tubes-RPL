@@ -37,13 +37,12 @@ class JournalList(object):
         self.contentFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.contentFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.contentFrame.setObjectName("contentFrame")
-        self.contentView = QtWidgets.QTableWidget(self.contentFrame)
+        self.contentView = QtWidgets.QLabel(self.contentFrame)
         self.contentView.setGeometry(QtCore.QRect(0, 0, 1101, 267))
-        self.contentView.setGridStyle(QtCore.Qt.NoPen)
-        self.contentView.setRowCount(0)
+        self.contentView.setTextFormat(QtCore.Qt.PlainText)
+        self.contentView.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.contentView.setWordWrap(True)
         self.contentView.setObjectName("contentView")
-        self.contentView.setColumnCount(0)
-        self.contentView.horizontalHeader().setSortIndicatorShown(False)
         self.dRight = QtWidgets.QPushButton(self.widget)
         self.dRight.setGeometry(QtCore.QRect(620, 570, 51, 51))
         self.dRight.setAutoFillBackground(False)
@@ -81,4 +80,5 @@ class JournalList(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "JournalList"))
+        self.contentView.setText(_translate("MainWindow", ""))
 import Journal.Journal_rc
