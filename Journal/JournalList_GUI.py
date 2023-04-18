@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qtjournallist.ui'
+# Form implementation generated from reading ui file 'ui\qtjournallist.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -39,6 +39,11 @@ class JournalList(object):
         self.contentFrame.setObjectName("contentFrame")
         self.contentView = QtWidgets.QLabel(self.contentFrame)
         self.contentView.setGeometry(QtCore.QRect(0, 0, 1101, 267))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        self.contentView.setFont(font)
+        self.contentView.setText("")
         self.contentView.setTextFormat(QtCore.Qt.PlainText)
         self.contentView.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.contentView.setWordWrap(True)
@@ -80,5 +85,4 @@ class JournalList(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "JournalList"))
-        self.contentView.setText(_translate("MainWindow", ""))
 import Journal.Journal_rc

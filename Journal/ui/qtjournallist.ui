@@ -76,8 +76,14 @@ image: transparent;</string>
         <height>267</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
       <property name="textFormat">
        <enum>Qt::PlainText</enum>
