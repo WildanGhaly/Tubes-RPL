@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import MainMenu.mainmenu as mainmenu
 
 
 class Ui_Form(object):
@@ -31,7 +32,8 @@ class Ui_Form(object):
         self.mood_prediction_background.setSizePolicy(sizePolicy)
         self.mood_prediction_background.setMinimumSize(QtCore.QSize(1366, 720))
         self.mood_prediction_background.setMaximumSize(QtCore.QSize(1366, 720))
-        self.mood_prediction_background.setStyleSheet("background-image: url(:/PrefixV1/images/mood prediction fg.png);")
+        self.mood_prediction_background.setStyleSheet(f"background-image: url({mainmenu.image_path});\n"
+            "border-image: url(:/PrefixV1/images/mood prediction fg.png);")
         self.mood_prediction_background.setText("")
         self.mood_prediction_background.setObjectName("mood_prediction_background")
         self.mood_prediction_graph = QtWidgets.QLabel(Form)
