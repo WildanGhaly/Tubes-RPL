@@ -83,19 +83,13 @@ class Sleep_Service(S.Sleep):
         
 
     def duration_count(self, jam_start, menit_start, jam_selesai, menit_selesai):
-        if (jam_selesai < jam_start) or (jam_selesai == jam_start and menit_selesai < menit_start):
-            durasi = jam_selesai * 60 + menit_selesai
+        durasi = 0
+        start_duration = int(jam_start)*60 + int(menit_start)
+        end_duration = int(jam_selesai)*60 + int(menit_selesai)
+        if(end_duration < start_duration):
+            durasi += (end_duration + 24*60) - start_duration
         else:
-            durasi_jam = jam_selesai - jam_start
-            durasi_menit = 0
-            if menit_selesai < menit_start:
-                durasi_jam -= 1
-                durasi_menit = 60 - (menit_start - menit_selesai)
-            else:
-                durasi_menit = menit_selesai - menit_start
-            
-            durasi = durasi_jam * 60 + durasi_menit
-        
+            durasi += end_duration-start_duration
         return durasi
     
     def is_kabisat(self, year):
