@@ -7,6 +7,7 @@ from Mood.mood_pyqt import Mood_Form as mood_window
 from Journal.JournalInput_Call import Journal_GUI_Call as journal_window
 from Sleep.Sleep_Input_GUI import Ui_Widget as sleep_window
 from Quotes.Choose_Call import Quotes_Choose_Call as quotes_window
+from Quotes.Quotes_Popup_Call import Quotes_Popup_Call as quotes_popup
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -112,6 +113,12 @@ class Ui_MainWindow(object):
         print("Info udah bisa")
         self.history = history_window()
         self.history.show()
+        self.hide()
+    
+    def getRandomQuotes(self):
+        print("Show Quotes")
+        self.quotes = quotes_popup()
+        self.quotes.show()
         self.hide()
        
 # if __name__ == "__main__":
