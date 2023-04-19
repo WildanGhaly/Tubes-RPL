@@ -4,19 +4,19 @@ import Sleep.resource_rc
 from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
     QSize)
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont 
 from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit, QMessageBox)
 from PyQt5 import QtWidgets
 from datetime import datetime, date
 from Sleep.Sleep_Service import Sleep_Service
+from Sleep.Sleep import Sleep
 
 from Sleep.Sleep_Plot import *
 
-class Ui_Widget(QWidget, Sleep_Service):
+class Ui_Widget(QWidget, Sleep_Service, Sleep):
     def __init__(self):
         
         super().__init__()
-        Sleep_Service.__init__(self)
         self.title='Sleep Input'
         self.left = 0
         self.top = 0
@@ -32,13 +32,26 @@ class Ui_Widget(QWidget, Sleep_Service):
         Widget.resize(1366, 720)
         Widget.setMinimumSize(QSize(1366, 720))
         Widget.setMaximumSize(QSize(1366, 720))
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
+        self.bg = QLabel(Widget)
+        self.bg.setObjectName(u"label")
+        self.bg.setEnabled(True)
+        self.bg.setGeometry(QRect(0, 0, 1366, 720))
+        sizePolicy.setHeightForWidth(self.bg.sizePolicy().hasHeightForWidth())
+        self.bg.setSizePolicy(sizePolicy)
+        self.bg.setMinimumSize(QSize(1366, 720))
+        self.bg.setMaximumSize(QSize(1366, 720))
+        self.bg.setStyleSheet(u"border-image: url(./Sleep/vstock/background.jpg)")
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)
         self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
-        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time input fg.png)")
+        self.sleepViz.setStyleSheet(u"border-image: url(./Sleep/vstock/sleep time input fg.png)")
         self.plainTextEdit = QPlainTextEdit(Widget)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))

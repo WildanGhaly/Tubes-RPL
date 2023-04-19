@@ -18,6 +18,8 @@ class PlotCanvas(FigureCanvas):
                 QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
         FigureCanvas.resize(self,330,300)
+        if otherData==None:
+            otherData=[0]
         self.plot(otherData, filename)
         
     def plot(self, otherData, filename):
@@ -25,8 +27,13 @@ class PlotCanvas(FigureCanvas):
         for i in range (len(otherData)):
             data.append(int(otherData[i]))
         ypoints = np.array(data)
+        days = [1,2,3,4,5,6,7]
+        
         print(data)
-        xpoints = np.array([1,2,3,4,5,6,7])
+        if otherData==[0]:
+            xpoints = np.array([0])
+        else:
+            xpoints = np.array(days)
         plt.figure().set_figheight(3.125)
         plt.figure().set_figwidth(3.4375)
         plt.plot(xpoints, ypoints)
@@ -47,9 +54,10 @@ class PlotCanvasRec(FigureCanvas):
         data = []
         for i in range (len(otherData)):
             data.append(int(otherData[i]))
-        xpoints = np.array(data)
-        ypoints = np.array([0, len(data)-1])
-        plt.plot(xpoints, ypoints)
+        print(data)
+        ypoints = np.array(data)
+        xpoints = np.array([1,2,3,4,5,6,7])
         plt.figure().set_figheight(3.2291666667)
         plt.figure().set_figwidth(5.2916666667)
-        plt.savefig('./Sleep/vis_result/sleep_visual_recom.png')
+        plt.plot(xpoints, ypoints)
+        plt.savefig('./Sleep/vis_result/recommendation.png')
