@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Quotes.Quotes_Service as QS
 import  MainMenu.mainmenu as main
+from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit, QMessageBox)
 
 class QChoose(QS.Quotes_Service):
     def setupUi(self, MainWindow):
@@ -24,6 +25,14 @@ class QChoose(QS.Quotes_Service):
         self.label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
+
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        self.label.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+
         # self.label.setStyleSheet("background-image: url(:/newPrefix/select quotes menu fg.png);")
         self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
 "border-image: url(./Quotes/image/select quotes menu fg black.png);")
