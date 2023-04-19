@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\qtjournallist.ui'
+# Form implementation generated from reading ui file 'qtjournallist.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import MainMenu.mainmenu as main
 
 class JournalList(object):
     def setupUi(self, MainWindow):
@@ -22,13 +22,14 @@ class JournalList(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(800, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1920, 1080))
-        MainWindow.setStyleSheet("background-image: url(:/Journal/background.jpg);")
+        MainWindow.setStyleSheet(f"background-image: url({main.image_path});")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setStyleSheet(f"background-image: url({main.image_path});")
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(0, 0, 1366, 720))
-        self.widget.setStyleSheet("background: transparent;\n"
-"image: url(:/Journal/journal list fg.png);")
+        self.widget.setStyleSheet("image: url(:/Resources/Resources/journal list fg.png);\n"
+"background : transparent")
         self.widget.setObjectName("widget")
         self.contentFrame = QtWidgets.QFrame(self.widget)
         self.contentFrame.setGeometry(QtCore.QRect(132, 270, 1101, 267))
@@ -55,7 +56,7 @@ class JournalList(object):
         self.dRight.setText("")
         self.dRight.setObjectName("dRight")
         self.dLeft = QtWidgets.QPushButton(self.widget)
-        self.dLeft.setGeometry(QtCore.QRect(690, 570, 51, 51))
+        self.dLeft.setGeometry(QtCore.QRect(700, 570, 51, 51))
         self.dLeft.setAutoFillBackground(False)
         self.dLeft.setStyleSheet("image: transparent;")
         self.dLeft.setText("")

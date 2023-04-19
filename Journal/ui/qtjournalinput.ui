@@ -8,13 +8,13 @@
     <x>0</x>
     <y>0</y>
     <width>1366</width>
-    <height>800</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>599</width>
-    <height>800</height>
+    <width>800</width>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -30,7 +30,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/Journal/background.jpg);</string>
+   <string notr="true">background-image: url(:/Resources/Resources/background.jpg);</string>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -50,7 +50,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-image: transparent;</string>
+image: transparent;
+background-image: url(:/Journal/background.jpg);</string>
    </property>
    <widget class="QWidget" name="widget" native="true">
     <property name="enabled">
@@ -68,7 +69,8 @@ image: transparent;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/Journal/journal input fg.png);</string>
+     <string notr="true">image: url(:/Journal/Resources/journal input fg.png);
+image: url(:/Resources/Resources/journal input fg.png);</string>
     </property>
     <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
@@ -164,6 +166,23 @@ image: transparent;</string>
      </property>
      <property name="flat">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="backButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>140</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image:transparent;
+background: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
