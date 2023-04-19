@@ -76,7 +76,7 @@ class JournalList(object):
         self.dateChoose.setSizePolicy(sizePolicy)
         self.dateChoose.setStyleSheet("image: transparent;\n"
 "background: transparent;")
-        self.dateChoose.setText("")
+        self.dateChoose.setText("Choose Date")
         self.dateChoose.setObjectName("dateChoose")
         # MainWindow.setCentralWidget(self.centralwidget)
 
