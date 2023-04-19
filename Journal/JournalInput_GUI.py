@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\qtjournalinput.ui'
+# Form implementation generated from reading ui file 'qtjournalinput.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,30 +9,29 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from tkinter import messagebox
-from Journal.Journal import Journal as jrn
-import Journal.JournalDatabase as JournalDatabase
+import MainMenu.mainmenu as main
 class JournalInput(object):
-    DB = JournalDatabase.JournalDatabase()
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1366, 800)
-        MainWindow.setMinimumSize(QtCore.QSize(599, 800))
+        MainWindow.resize(1366, 720)
+        MainWindow.setMinimumSize(QtCore.QSize(800, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1920, 1080))
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet("background-image: url(:/Journal/background.jpg);")
+        MainWindow.setStyleSheet(f"background-image: url({main.image_path});")
         # MainWindow.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(800, 600))
         self.centralwidget.setMaximumSize(QtCore.QSize(1920, 1080))
         self.centralwidget.setStyleSheet("background: transparent;\n"
-"image: transparent;")
+"image: transparent;\n"
+f"background-image: url({main.image_path});")
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setEnabled(True)
         self.widget.setGeometry(QtCore.QRect(0, -70, 1361, 941))
         self.widget.setAutoFillBackground(False)
-        self.widget.setStyleSheet("image: url(:/Journal/journal input fg.png);")
+        self.widget.setStyleSheet("image: url(:/Journal/Resources/journal input fg.png);\n"
+"image: url(:/Resources/Resources/journal input fg.png);")
         self.widget.setObjectName("widget")
         self.scrollArea = QtWidgets.QScrollArea(self.widget)
         self.scrollArea.setGeometry(QtCore.QRect(130, 380, 1101, 271))
@@ -76,7 +75,12 @@ class JournalInput(object):
         self.SubmitButton.setText("")
         self.SubmitButton.setFlat(True)
         self.SubmitButton.setObjectName("SubmitButton")
-        self.SubmitButton.clicked.connect(self.addToJournalDB)
+        self.backButton = QtWidgets.QPushButton(self.widget)
+        self.backButton.setGeometry(QtCore.QRect(30, 140, 81, 81))
+        self.backButton.setStyleSheet("image:transparent;\n"
+"background: transparent;")
+        self.backButton.setText("")
+        self.backButton.setObjectName("backButton")
         # MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -85,25 +89,4 @@ class JournalInput(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Journal Input"))
-    def addToJournalDB(self):
-        if self.JournalContent.toPlainText().strip()=="":
-        # do nothing
-                messagebox.showinfo("Failed", "Konten Jurnal kosong.")
-        else : 
-                addedContent = jrn([jrn.DatetimeToID(),self.JournalContent.toPlainText(),"Title"+jrn.DatetimeToID()])
-                self.DB.addJournal(addedContent.toCSV())
-                messagebox.showinfo("Success", "Konten Jurnal ditambahkan.")
-                from MainMenu.main_menu_GUI import Main_Menu_GUI
-                self.main_menu = Main_Menu_GUI()
-                self.main_menu.show()
-                self.hide()
 import Journal.Journal_rc
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     MainWindow = QtWidgets.QMainWindow()
-#     ui = JournalInput()
-#     ui.setupUi(MainWindow)
-#     MainWindow.show()
-#     sys.exit(app.exec_())
