@@ -26,11 +26,18 @@ class Sleep:
                 allSleep.append(self.sleep[i][5])
             return allSleep
         else:
-            idx = [i for i, item in enumerate (self.sleep) if re.search(f'${id}', item)]
+            idx = -1
+            for i in range (len(self.sleep)):
+                if id == (str(self.sleep[i][0]))[:8]:
+                    # print((self.sleep[i][0])[:8])
+                    idx = i
+            
             if (idx == None):
-                return None
-            else:
                 for i in range(idx[len(idx)-1]-7, idx[len(idx)-1]):
+                    allSleep.append(self.sleep[i][5])
+                return allSleep
+            else:
+                for i in range(idx-7, idx):
                     allSleep.append(self.sleep[i][5])
                 return allSleep
     
@@ -41,11 +48,16 @@ class Sleep:
                 allSleep.append(self.sleep[i][4])
             return allSleep
         else:
-            idx = [i for i, item in enumerate (self.sleep) if re.search(f'${id}', item)]
+            idx = -1
+            for i in range (len(self.sleep)):
+                if id == (str(self.sleep[i][0]))[:8]:
+                    # print((self.sleep[i][0])[:8])
+                    idx = i
+            
             if (idx == None):
                 return None
             else:
-                for i in range(idx[len(idx)-1]-7, idx[len(idx)-1]):
+                for i in range(idx-7, idx):
                     allSleep.append(self.sleep[i][4])
                 return allSleep
             
@@ -56,13 +68,19 @@ class Sleep:
                 allSleep.append(self.sleep[i][3])
             return allSleep
         else:
-            idx = [i for i, item in enumerate (self.sleep) if re.search(f'${id}', item)]
+            idx = -1
+            for i in range (len(self.sleep)):
+                if id == (str(self.sleep[i][0]))[:8]:
+                    # print((self.sleep[i][0])[:8])
+                    idx = i
+            
             if (idx == None):
                 return None
             else:
-                for i in range(idx[len(idx)-1]-7, idx[len(idx)-1]):
+                for i in range(idx-7, idx):
                     allSleep.append(self.sleep[i][3])
                 return allSleep
+        
             
     def getWeekStartSleepMinute(self, id):
         allSleep = []
@@ -71,26 +89,37 @@ class Sleep:
                 allSleep.append(self.sleep[i][2])
             return allSleep
         else:
-            idx = [i for i, item in enumerate (self.sleep) if re.search(f'${id}', item)]
+            idx = -1
+            for i in range (len(self.sleep)):
+                if id == (str(self.sleep[i][0]))[:8]:
+                    idx = i
+                # print(id)
+                # print((self.sleep[i][0])[:8])
+            
             if (idx == None):
                 return None
             else:
-                for i in range(idx[len(idx)-1]-7, idx[len(idx)-1]):
+                for i in range(idx-7, idx):
                     allSleep.append(self.sleep[i][2])
                 return allSleep
             
-    def getWeekStartSleepHour(self, id):
+    def getWeekStartSleepHour(self, id: str):
         allSleep = []
         if(id==None):
             for i in range (len(self.sleep)-7, len(self.sleep)):
                 allSleep.append(self.sleep[i][1])
             return allSleep
         else:
-            idx = [i for i, item in enumerate (self.sleep) if re.search(f'${id}', item)]
-            if (idx == None):
+            idx = -1
+            for i in range (len(self.sleep)):
+                if id == (str(self.sleep[i][0]))[:8]:
+                    # print((self.sleep[i][0])[:8])
+                    idx = i
+            
+            if (idx == -1):
                 return None
             else:
-                for i in range(idx[len(idx)-1]-7, idx[len(idx)-1]):
+                for i in range(idx-7, idx):
                     allSleep.append(self.sleep[i][1])
                 return allSleep
     
