@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
             self.label = QtWidgets.QLabel(self.centralwidget)
             self.label.setGeometry(QtCore.QRect(0, 0, 1371, 721))
             self.label.setText("")
-            pixmap = self.label.setPixmap(QtGui.QPixmap(image_path))
+            pixmap = self.label.setPixmap(QtGui.QPixmap(image_path).scaled(self.label.width(), self.label.height()))
             self.label.setObjectName("label")
             self.label_3 = QtWidgets.QLabel(self.centralwidget)
             self.label_3.setGeometry(QtCore.QRect(0, 0, 1371, 721))
