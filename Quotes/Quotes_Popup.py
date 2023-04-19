@@ -17,42 +17,52 @@ from PyQt5.QtGui import QTextCharFormat, QColor
 
 
 class QPopUp(QS.Quotes_Service):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(1366, 720)
-        Dialog.setMinimumSize(QtCore.QSize(1366, 720))
-        Dialog.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
-        self.label.setMinimumSize(QtCore.QSize(1366, 720))
-        self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet("background-image: url(:/newPrefix/mendapat quotes fg.png);")
-        self.label.setText("")
-        self.label.setObjectName("label")
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1359, 720)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(0, 0, 1361, 721))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("./Quotes/background.jpg"))
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(0, 0, 1361, 720))
+        self.label_3.setText("")
+        self.label_3.setPixmap(QtGui.QPixmap("./Quotes/getQuotes.png"))
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QPlainTextEdit(MainWindow)
+        self.label_4.setGeometry(QtCore.QRect(240, 395, 891, 151))
+        # self.label_4.setText("")
+        self.label_4.setObjectName("label_4")
+        self.label_4.setStyleSheet("background-color: transparent;")
+        self.label_4.setFrameShape(QtWidgets.QFrame.NoFrame)
+        font = QtGui.QFont()
+        font.setPointSize(18) 
+        self.label_4.setFont(font)
+        self.label_4.setPlainText(self.get_random_quote())
+        self.label_4.setReadOnly(True)
 
-        self.textEdit = QtWidgets.QPlainTextEdit(Dialog)
-        self.textEdit.setGeometry(QtCore.QRect(200, 407, 965, 181))
-        self.textEdit.setStyleSheet("background-color: transparent;")
-        self.textEdit.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.textEdit.setObjectName("textEdit")
-        font = QFont("Arial", 22)
-        self.textEdit.setFont(font)
-        self.textEdit.setReadOnly(True)
-        self.textEdit.setPlainText(self.get_random_quote())
-        # opacity_effect = QGraphicsOpacityEffect()
-        # opacity_effect.setOpacity(0)  # Set the opacity value between 0 and 1
-        # self.textEdit.setGraphicsEffect(opacity_effect)
-        # self.textEdit.setStyleSheet("background-color: transparent;")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(1180, 620, 151, 71))
+        self.pushButton.setStyleSheet("background: transparent;")
+        self.pushButton.setText("")
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.clickNext)
+        # self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
-
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-    
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
-import Quotes.rc_popup
+    def clickNext(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
+        self.hide()
+    
 
 # if __name__ == "__main__":
 #     import sys
