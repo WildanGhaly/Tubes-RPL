@@ -8,14 +8,14 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QDateEdit, QLabel, QPushButton, QSizePolicy, QWidget, QPlainTextEdit)
 from PyQt5 import QtWidgets
 from Sleep.Sleep import Sleep
+from Sleep.Sleep_Service import Sleep_Service
 from Sleep.Sleep_Plot import *
 import  MainMenu.mainmenu as main
 
-class Ui_Widget(QWidget, Sleep):
+class Ui_Widget(QWidget, Sleep_Service):
     def __init__(self):
         
         super().__init__()
-        Sleep.__init__(self)
         self.title='Sleep Input'
         self.left = 0
         self.top = 0
@@ -25,7 +25,7 @@ class Ui_Widget(QWidget, Sleep):
     
     def setupUi(self, Widget):
         self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
+        # self.setGeometry(self.left, self.top, self.width, self.height)
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
         Widget.resize(1366, 720)
@@ -53,19 +53,10 @@ class Ui_Widget(QWidget, Sleep):
         self.chronoType = QLabel(Widget)
         self.chronoType.setObjectName(u"chronoType")
         self.chronoType.setEnabled(True)
-        self.chronoType.setGeometry(QRect(705, 293, 509, 155))
-        self.chronoType.setStyleSheet(u"border-image: url(./Sleep/vstock/bearChronoType.jpg)")
+        self.chronoType.setGeometry(QRect(705, 257, 511, 316))
+        chronoPict, self.meanDuration = self.calculateChronoType(self.getWeekStartSleepHour(id=None), self.getWeekEndSleepHour(id=None), self.getWeekSleepDuration(id=None))
+        self.chronoType.setStyleSheet(u"border-image: url(./Sleep/vstock/"+ chronoPict +")")
         
-        self.rec = QLabel(Widget)
-        self.rec.setObjectName(u"recommendation")
-        self.rec.setEnabled(True)
-        self.rec.setGeometry(QRect(715, 525, 509, 50))
-        self.rec.setStyleSheet("\n"
-            "font: 700 15pt \"Segoe Script\";\n"
-            "alternate-background-color: rgb(255, 85, 0);\n"
-            "selection-color: rgb(170, 0, 0);\n"
-            "selection-background-color: rgb(170, 0, 0);\n"
-            "border-color: rgb(0, 0, 0);\n")
         self.rec1 = QLabel(Widget)
         self.rec1.setObjectName(u"recommendation")
         self.rec1.setEnabled(True)
@@ -104,9 +95,13 @@ class Ui_Widget(QWidget, Sleep):
         self.hide()
         
     def retranslateUi(self, Widget):
-        self.test = u"You should sleep more"
+        if(self.meanDuration >= 600):
+            self.test = u"You should sleep less"
+        elif(self.meanDuration <= 300):
+            self.test = u"You should sleep more"
+        else:
+            self.test = u"Your sleep duration is good!!"
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        self.rec.setText(QCoreApplication.translate("Widget", self.test, None))
         self.rec1.setText(QCoreApplication.translate("Widget", self.test, None))
         self.nextButton.setText(QCoreApplication.translate("Widget", u"", None))
         self.labelRecommendation.setText(QCoreApplication.translate("Widget", u"", None))

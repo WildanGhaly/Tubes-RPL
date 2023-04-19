@@ -98,3 +98,26 @@ class Sleep_Service(S.Sleep):
         else:
             return False
     
+    def calculateChronoType(self, jam_start, jam_end, duration):
+        meanJamStart = jam_start[0]
+        meanJamEnd = jam_end[0]
+        meanDuration = duration[0]
+        for i in range(1, len(jam_start)):
+            meanJamStart = (meanJamStart + jam_start[i])/2
+            
+        for i in range(1, len(jam_end)):
+            meanJamEnd = (meanJamEnd + jam_end[i])/2
+        for i in range(1, len(jam_end)):
+            meanDuration = (meanDuration + duration[i])/2
+                
+        if (meanJamStart <= 24 and meanJamStart >= 22 and meanDuration > 300) :
+            return 'lionChronoType.png', meanDuration
+        elif (meanJamStart <= 4 and meanDuration > 300):
+            return 'bearChronoType.png', meanDuration
+        elif (meanJamStart > 6 and meanJamStart <= 12 and meanDuration > 300):
+            return 'wolfChronoType.png', meanDuration
+        elif (meanJamStart < 22 and meanJamStart >= 18 and meanDuration > 300):
+            return 'dolphinChronoType.png', meanDuration
+        else:
+            return 'andaBermasalah.png', meanDuration
+        
