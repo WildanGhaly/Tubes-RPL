@@ -3,7 +3,7 @@ import csv
 class Quotes:
     # Konstruktor
     def __init__(self):
-        self.filename = './Quotes/Quotes.csv'
+        self.filename = 'C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\REKAYASA PERANGKAT LUNAK\\Tubes-RPL\\src\\Quotes\\Quotes.csv'
         with open(self.filename, 'r') as file:
             csvreader = csv.reader(file)
             next(csvreader)  # Skip header row

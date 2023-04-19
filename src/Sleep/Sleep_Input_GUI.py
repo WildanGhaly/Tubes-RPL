@@ -52,7 +52,7 @@ class Ui_Widget(QWidget, Sleep_Service, Sleep):
         self.sleepViz.setGeometry(QRect(0, 0, 1366, 720))
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
-        self.sleepViz.setStyleSheet(u"border-image: url(./Sleep/vstock/sleep time input fg.png)")
+        self.sleepViz.setStyleSheet(u"border-image: url(../image/Sleep/sleep time input fg.png)")
         self.plainTextEdit = QPlainTextEdit(Widget)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setGeometry(QRect(680, 244, 275, 50))

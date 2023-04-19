@@ -85,7 +85,7 @@ class Ui_Widget(QWidget, Sleep, uw.Ui_Form):
         self.sleepViz.setSizePolicy(sizePolicy)
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
-        self.sleepViz.setStyleSheet(u"border-image: url(./Sleep/vstock/sleep time visualization fg.png)")
+        self.sleepViz.setStyleSheet(u"border-image: url(../image/Sleep/sleep time visualization fg.png)")
 
         self.nextButton = QPushButton(Widget)
         self.nextButton.setObjectName(u"nextButton")
