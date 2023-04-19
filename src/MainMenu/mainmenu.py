@@ -38,11 +38,11 @@ class Ui_MainWindow(object):
             self.label_3 = QtWidgets.QLabel(self.centralwidget)
             self.label_3.setGeometry(QtCore.QRect(0, 0, 1371, 721))
             self.label_3.setText("")
-            self.label_3.setPixmap(QtGui.QPixmap('mainmenu/display.png'))
+            self.label_3.setPixmap(QtGui.QPixmap("../image/MainMenu/display.png"))
             self.label_3.setObjectName("label_3")
             self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_2.setGeometry(QtCore.QRect(160, 230, 351, 161))
-            self.pushButton_2.setStyleSheet("background-image: url('mainmenu/moodbutton.png');\n"
+            self.pushButton_2.setStyleSheet("background-image: url('../image/MainMenu/moodbutton.png');\n"
     "border: none;\n"
     "")
             self.pushButton_2.setText("")
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
             self.pushButton_2.clicked.connect(self.printmood)
             self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_3.setGeometry(QtCore.QRect(850, 230, 351, 161))
-            self.pushButton_3.setStyleSheet("background-image: url('mainmenu/journalbutton.png');\n"
+            self.pushButton_3.setStyleSheet("background-image: url('../image/MainMenu/journalbutton.png');\n"
     "border: none;\n"
     "")
             self.pushButton_3.setText("")
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
             self.pushButton_3.clicked.connect(self.printjournal)
             self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_4.setGeometry(QtCore.QRect(160, 420, 351, 161))
-            self.pushButton_4.setStyleSheet("background-image: url('mainmenu/sleepbutton.png');\n"
+            self.pushButton_4.setStyleSheet("background-image: url('../image/MainMenu/sleepbutton.png');\n"
     "border: none;\n"
     "")
             self.pushButton_4.setText("")
@@ -69,7 +69,7 @@ class Ui_MainWindow(object):
             self.pushButton_4.clicked.connect(self.printsleep)
             self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_5.setGeometry(QtCore.QRect(850, 420, 351, 161))
-            self.pushButton_5.setStyleSheet("background-image: url('mainmenu/quotesbutton.png');\n"
+            self.pushButton_5.setStyleSheet("background-image: url('../image/MainMenu/quotesbutton.png');\n"
     "border: none;\n"
     "")
             self.pushButton_5.setText("")
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
             self.pushButton_5.clicked.connect(self.printquotes)
             self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_6.setGeometry(QtCore.QRect(540, 560, 281, 121))
-            self.pushButton_6.setStyleSheet("background-image: url('mainmenu/infobutton.png');\n"
+            self.pushButton_6.setStyleSheet("background-image: url('../image/MainMenu/infobutton.png');\n"
     "border: none;\n"
     "")
             self.pushButton_6.setText("")
@@ -87,7 +87,7 @@ class Ui_MainWindow(object):
             self.pushButton_6.clicked.connect(self.openInfo)
             self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_7.setGeometry(QtCore.QRect(1180, 620, 161, 71))
-            self.pushButton_7.setStyleSheet("background-image: url('mainmenu/quit.png');\n"
+            self.pushButton_7.setStyleSheet("background-image: url('../image/MainMenu/quit.png');\n"
     "border: none;\n"
     "")
             self.pushButton_7.setText("")
@@ -98,7 +98,7 @@ class Ui_MainWindow(object):
 
             self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_8.setGeometry(QtCore.QRect(40, 620, 161, 71))
-            self.pushButton_8.setStyleSheet("background-image: url('mainmenu/changebg.png');\n"
+            self.pushButton_8.setStyleSheet("background-image: url('../image/MainMenu/changebg.png');\n"
     "border: none;\n"
     "")
             self.pushButton_8.setText("")
