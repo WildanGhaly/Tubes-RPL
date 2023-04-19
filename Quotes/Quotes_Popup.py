@@ -14,6 +14,7 @@ import Quotes.Quotes_Service as QS
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QTextCharFormat, QColor
+import MainMenu.mainmenu as main
 
 
 class QPopUp(QS.Quotes_Service):
@@ -25,8 +26,9 @@ class QPopUp(QS.Quotes_Service):
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(0, 0, 1361, 721))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("./Quotes/background.jpg"))
+        self.label_2.setPixmap(QtGui.QPixmap(main.image_path))
         self.label_2.setObjectName("label_2")
+
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(0, 0, 1361, 720))
         self.label_3.setText("")

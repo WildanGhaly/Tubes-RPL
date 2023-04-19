@@ -8,17 +8,23 @@ from Journal.JournalInput_Call import Journal_GUI_Call as journal_window
 from Sleep.Sleep_Input_GUI import Ui_Widget as sleep_window
 from Quotes.Choose_Call import Quotes_Choose_Call as quotes_window
 from Quotes.Quotes_Popup_Call import Quotes_Popup_Call as quotes_popup
+import os
+import shutil
+import pathlib
 
 first_run = True
+image_path = "image/background.jpg"
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         global first_run
+        global pixmap
         print(first_run)
         if first_run:
             self.getRandomQuotes()
             first_run = False
         else:
+            self.background_changed = False
             MainWindow.setObjectName("MainWindow")
             MainWindow.resize(1366, 720)
             MainWindow.setStyleSheet("")
@@ -27,8 +33,13 @@ class Ui_MainWindow(object):
             self.label = QtWidgets.QLabel(self.centralwidget)
             self.label.setGeometry(QtCore.QRect(0, 0, 1371, 721))
             self.label.setText("")
-            self.label.setPixmap(QtGui.QPixmap('mainmenu/mainmenu.jpg'))
+            pixmap = self.label.setPixmap(QtGui.QPixmap(image_path))
             self.label.setObjectName("label")
+            self.label_3 = QtWidgets.QLabel(self.centralwidget)
+            self.label_3.setGeometry(QtCore.QRect(0, 0, 1371, 721))
+            self.label_3.setText("")
+            self.label_3.setPixmap(QtGui.QPixmap('mainmenu/display.png'))
+            self.label_3.setObjectName("label_3")
             self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
             self.pushButton_2.setGeometry(QtCore.QRect(160, 230, 351, 161))
             self.pushButton_2.setStyleSheet("background-image: url('mainmenu/moodbutton.png');\n"
@@ -83,7 +94,17 @@ class Ui_MainWindow(object):
             self.pushButton_7.setFlat(False)
             self.pushButton_7.setObjectName("pushButton_7")
             self.pushButton_7.clicked.connect(MainWindow.close)
-            # MainWindow.setCentralWidget(self.centralwidget)
+
+
+            self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
+            self.pushButton_8.setGeometry(QtCore.QRect(40, 620, 161, 71))
+            self.pushButton_8.setStyleSheet("background-image: url('mainmenu/changebg.png');\n"
+    "border: none;\n"
+    "")
+            self.pushButton_8.setText("")
+            self.pushButton_8.setFlat(False)
+            self.pushButton_8.setObjectName("pushButton_8")
+            self.pushButton_8.clicked.connect(self.changeBackground)
 
             self.retranslateUi(MainWindow)
             QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -128,6 +149,22 @@ class Ui_MainWindow(object):
         self.quotes = quotes_popup()
         self.quotes.show()
         self.hide()
+
+    def changeBackground(self):
+        print("Change Background")
+        file_dialog = QtWidgets.QFileDialog()
+        file_dialog.setNameFilter("Images (*.jpg)")
+        file_dialog.setDefaultSuffix("jpg")
+        file_path, _ = file_dialog.getOpenFileName()
+            
+        if file_path:
+            shutil.copy2(file_path, image_path)
+            pixmap = QtGui.QPixmap(image_path).scaled(self.label.width(), self.label.height())
+            self.background_changed = True
+        else:
+            return
+        
+        self.label.setPixmap(pixmap)
        
 # if __name__ == "__main__":
 #     import sys
