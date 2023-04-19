@@ -1,5 +1,4 @@
 import sys
-import Sleep.resource_rc
 
 from PyQt5.QtCore import (QCoreApplication, QDateTime,
     QMetaObject, QRect,
@@ -36,6 +35,15 @@ class Ui_Widget(QWidget, Sleep):
         Widget.setSizePolicy(sizePolicy)
         Widget.setMinimumSize(QSize(1366, 720))
         Widget.setMaximumSize(QSize(1366, 720))
+        self.bg = QLabel(Widget)
+        self.bg.setObjectName(u"label")
+        self.bg.setEnabled(True)
+        self.bg.setGeometry(QRect(0, 0, 1366, 720))
+        sizePolicy.setHeightForWidth(self.bg.sizePolicy().hasHeightForWidth())
+        self.bg.setSizePolicy(sizePolicy)
+        self.bg.setMinimumSize(QSize(1366, 720))
+        self.bg.setMaximumSize(QSize(1366, 720))
+        self.bg.setStyleSheet(u"border-image: url(./Sleep/vstock/background.jpg)")
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)
@@ -44,7 +52,7 @@ class Ui_Widget(QWidget, Sleep):
         self.sleepViz.setSizePolicy(sizePolicy)
         self.sleepViz.setMinimumSize(QSize(1366, 720))
         self.sleepViz.setMaximumSize(QSize(1366, 720))
-        self.sleepViz.setStyleSheet(u"background-image: url(:/newPrefix/vstock/sleep time visualization fg.png)")
+        self.sleepViz.setStyleSheet(u"border-image: url(./Sleep/vstock/sleep time visualization fg.png)")
 
         self.nextButton = QPushButton(Widget)
         self.nextButton.setObjectName(u"nextButton")
@@ -66,23 +74,34 @@ class Ui_Widget(QWidget, Sleep):
             "border-color: rgb(0, 0, 0);\n")
         #Start Sleep Chart
         date = self.dateEdit.date()
-        
-        date.toString()
+        print(date.toString())
         start = self.getWeekStartSleepHour(id=None)
-        startSleepChart = PlotCanvas(self , 4, 4, 100, start)
+        startSleepChart = PlotCanvas(self , 4, 4, 100, start, 'start')
         startSleepChart.move(149,265)
-        self.startPlot = QWidget(startSleepChart)
-        self.startPlot.setObjectName(u"Start Chart")
-        self.startPlot.setGeometry(QRect(149,265,330,300))
+        self.labelStart = QLabel(Widget)
+        self.labelStart.setObjectName(u"StartChart")
+        self.labelStart.setEnabled(True)
+        self.labelStart.setGeometry(149,265,330,300)
+        self.labelStart.setStyleSheet("border-image: url(./Sleep/vis_result/start.png)")
         #Duration Sleep Chart
         dur = self.getWeekSleepDuration(id=None)
-        durationSleep = PlotCanvas(self , 4, 4, 100, dur)
+        durationSleep = PlotCanvas(self , 4, 4, 100, dur, 'duration')
         durationSleep.move(520,265)
+        self.labelDur = QLabel(Widget)
+        self.labelDur.setObjectName(u"DurChart")
+        self.labelDur.setEnabled(True)
+        self.labelDur.setGeometry(520,265,330,300)
+        self.labelDur.setStyleSheet("border-image: url(./Sleep/vis_result/duration.png)")
 
         #endSleepChart
         end = self.getWeekEndSleepHour(id=None)
-        endSleepChart = PlotCanvas(self , 4, 4, 100, end)
+        endSleepChart = PlotCanvas(self , 4, 4, 100, end, 'end')
         endSleepChart.move(890,265)
+        self.labelEnd = QLabel(Widget)
+        self.labelEnd.setObjectName(u"EndChart")
+        self.labelEnd.setEnabled(True)
+        self.labelEnd.setGeometry(890,265,330,300)
+        self.labelEnd.setStyleSheet("border-image: url(./Sleep/vis_result/end.png)")
         # self.nextButton.raise_()
         self.dateEdit.raise_()
 
@@ -108,10 +127,10 @@ class Ui_Widget(QWidget, Sleep):
         self.main_menu.show()
         self.hide()
 
-if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
+# if __name__ == '__main__':
+#     app = QtWidgets.QApplication(sys.argv)
 
-    window = Ui_Widget()
-    window.show()
+#     window = Ui_Widget()
+#     window.show()
 
-    app.exec()
+#     app.exec()
