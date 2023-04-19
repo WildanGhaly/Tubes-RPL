@@ -48,8 +48,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: transparent;
-image: url(:/Journal/Resources/journal list fg.png);</string>
+     <string notr="true">image: url(:/Resources/Resources/journal list fg.png);
+background : transparent</string>
     </property>
     <widget class="QFrame" name="contentFrame">
      <property name="geometry">
@@ -124,7 +124,7 @@ image: transparent;</string>
     <widget class="QPushButton" name="dLeft">
      <property name="geometry">
       <rect>
-       <x>690</x>
+       <x>700</x>
        <y>570</y>
        <width>51</width>
        <height>51</height>
