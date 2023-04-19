@@ -19,7 +19,7 @@ class Ui_MainWindows(object):
         self.label_information_2 = QtWidgets.QLabel(self.centralwidget_information)
         self.label_information_2.setGeometry(QtCore.QRect(0, 0, 1361, 721))
         self.label_information_2.setText("")
-        self.label_information_2.setPixmap(QtGui.QPixmap("Information/showinfo.png"))
+        self.label_information_2.setPixmap(QtGui.QPixmap("../image/Information/showinfo.png"))
         self.label_information_2.setObjectName("label_2")
         self.pushButton_information = QtWidgets.QPushButton(self.centralwidget_information)
         self.pushButton_information.setGeometry(QtCore.QRect(210, 260, 341, 71))
