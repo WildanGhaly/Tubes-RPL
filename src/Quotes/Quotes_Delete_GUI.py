@@ -29,7 +29,7 @@ class QDelete(QS.Quotes_Service):
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
         self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
-                                 "border-image: url(./Quotes/image/quotes delete.png);")
+                                 "border-image: url(../image/Quotes/quotes delete.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
