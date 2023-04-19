@@ -55,9 +55,146 @@ Hear Ur Feelings Tool (H.U.F.T) adalah sebuah aplikasi perangkat lunak yang menc
 ## Struktur File
 ```bash
 📦Tucil2_13521008
+ ┣ 📂bin
  ┣ 📂doc
- ┣ 📂img
+ ┃ ┣ 📜Change Background.png
+ ┃ ┣ 📜Get Quotes.png
+ ┃ ┣ 📜Journal Input.png
+ ┃ ┣ 📜Journal List.png
+ ┃ ┣ 📜Main Menu.png
+ ┃ ┣ 📜Mood Input.png
+ ┃ ┣ 📜Mood Prediction Rate.png 
+ ┃ ┣ 📜Mood Prediction.png
+ ┃ ┣ 📜Mood Visualization.png
+ ┃ ┣ 📜Quotes Delete.png
+ ┃ ┣ 📜Quotes Edit.png
+ ┃ ┣ 📜Quotes Input.png
+ ┃ ┣ 📜Select Quotes Menu.png 
+ ┃ ┣ 📜Sleep Recommendation.png
+ ┃ ┣ 📜Sleep Time Input.png
+ ┃ ┗ 📜Sleep Time Visualization.png 
+ ┣ 📂image
+ ┃ ┣ 📂Information
+ ┃ ┃ ┗ 📜showinfo.png
+ ┃ ┣ 📂Journal
+ ┃ ┃ ┣ 📜background.jpg
+ ┃ ┃ ┣ 📜journal input fg.png
+ ┃ ┃ ┗ 📜journal list fg.png
+ ┃ ┣ 📂Main Menu
+ ┃ ┃ ┣ 📜background.jpg
+ ┃ ┃ ┣ 📜bgtemp1.jpg
+ ┃ ┃ ┣ 📜bgtemp2.jpg
+ ┃ ┃ ┣ 📜changebg.png
+ ┃ ┃ ┣ 📜display.png
+ ┃ ┃ ┣ 📜infobutton.png 
+ ┃ ┃ ┣ 📜journalbutton.png 
+ ┃ ┃ ┣ 📜mainmenu.jpg
+ ┃ ┃ ┣ 📜moodbutton.png 
+ ┃ ┃ ┣ 📜quit.png
+ ┃ ┃ ┣ 📜quotesbutton.png
+ ┃ ┃ ┗ 📜sleepbutton.png
+ ┃ ┣ 📂Mood
+ ┃ ┃ ┣ 📜SubmitButton.png
+ ┃ ┃ ┣ 📜SubmitButtonNoText.png
+ ┃ ┃ ┣ 📜default_background.jpg
+ ┃ ┃ ┣ 📜mood input fg with back.png
+ ┃ ┃ ┣ 📜mood input fg.png
+ ┃ ┃ ┣ 📜mood prediction fg.png
+ ┃ ┃ ┣ 📜mood prediction rate fg.png
+ ┃ ┃ ┣ 📜mood visualization fg.png
+ ┃ ┃ ┣ 📜mood_input.jpg
+ ┃ ┃ ┣ 📜mood_input_rev1.jpg
+ ┃ ┃ ┣ 📜mood_prediction.jpg
+ ┃ ┃ ┣ 📜mood_prediction_rate.jpg
+ ┃ ┃ ┣ 📜mood_visual.jpg
+ ┃ ┃ ┣ 📜new bg mood input fg.png
+ ┃ ┃ ┣ 📜new bg mood prediction fg.png
+ ┃ ┃ ┣ 📜new bg mood prediction rate fg.png
+ ┃ ┃ ┣ 📜new bg mood visualization fg.png
+ ┃ ┃ ┣ 📜next button.png
+ ┃ ┃ ┗ 📜submit button.png
+ ┃ ┣ 📂Quotes
+ ┃ ┃ ┣ 📜mendapat quotes fg black.png
+ ┃ ┃ ┣ 📜quotes delete.png
+ ┃ ┃ ┣ 📜quotes edit fg black.png
+ ┃ ┃ ┣ 📜quotes input fg black.png
+ ┃ ┃ ┣ 📜select quotes menu fg black.png 
+ ┃ ┃ ┗ 📜select quotes menu fg.png
+ ┃ ┣ 📂Sleep
+ ┃ ┃ ┣ 📜andaBermasalah.png
+ ┃ ┃ ┣ 📜background.jpg
+ ┃ ┃ ┣ 📜bearChronoType.png 
+ ┃ ┃ ┣ 📜dolphinChronoType.png
+ ┃ ┃ ┣ 📜lionChronoType.png
+ ┃ ┃ ┣ 📜sleep recommendation fg.png
+ ┃ ┃ ┣ 📜sleep time input fg.png 
+ ┃ ┃ ┣ 📜sleep time visualization fg.png
+ ┃ ┃ ┗ 📜wolfChronoType.png
+ ┃ ┣ 📜background.jpg
+ ┃ ┣ 📜bgtemp0.jpg
+ ┃ ┣ 📜bgtemp1.jpg
+ ┃ ┗ 📜bgtemp2.jpg
  ┣ 📂src
+ ┃ ┣ 📂Information
+ ┃ ┃ ┣ 📜information.py
+ ┃ ┃ ┗ 📜information_GUI.py
+ ┃ ┣ 📂Journal
+ ┃ ┃ ┣ 📜Journal.py
+ ┃ ┃ ┣ 📜JournalDatabase.py
+ ┃ ┃ ┣ 📜JournalInput_Call.py
+ ┃ ┃ ┣ 📜JournalInput_GUI.py
+ ┃ ┃ ┣ 📜JournalList_Call.py
+ ┃ ┃ ┣ 📜JournalList_GUI.py 
+ ┃ ┃ ┗ 📜Journal_rc.py
+ ┃ ┣ 📂MainMenu
+ ┃ ┃ ┣ 📜main_menu_GUI.py 
+ ┃ ┃ ┗ 📜mainmenu.py
+ ┃ ┣ 📂Mood
+ ┃ ┃ ┣ 📜mood.py
+ ┃ ┃ ┣ 📜mood_pyqt.py
+ ┃ ┃ ┣ 📜mood_pyqt_feedback.py
+ ┃ ┃ ┣ 📜mood_pyqt_prediction.py
+ ┃ ┃ ┣ 📜mood_pyqt_visual.py
+ ┃ ┃ ┣ 📜mood_pyqt_visual_calendar.py 
+ ┃ ┃ ┣ 📜mood_service.py
+ ┃ ┃ ┣ 📜moodinput.py
+ ┃ ┃ ┣ 📜moodvisualize.py
+ ┃ ┃ ┣ 📜resource_rc.py 
+ ┃ ┃ ┣ 📜ui_mood_feedback.py
+ ┃ ┃ ┣ 📜ui_mood_input_rev1.py 
+ ┃ ┃ ┣ 📜ui_mood_prediction.py
+ ┃ ┃ ┣ 📜ui_mood_visual.py
+ ┃ ┃ ┗ 📜ui_mood_visual_calendar.py
+ ┃ ┣ 📂Quotes
+ ┃ ┃ ┣ 📜Choose_Call.py
+ ┃ ┃ ┣ 📜Choose_GUI.py
+ ┃ ┃ ┣ 📜Quotes.py
+ ┃ ┃ ┣ 📜Quotes_Delete_GUI.py
+ ┃ ┃ ┣ 📜Quotes_GUI(old).py
+ ┃ ┃ ┣ 📜Quotes_Input_Call.py
+ ┃ ┃ ┣ 📜Quotes_Input_GUI.py
+ ┃ ┃ ┣ 📜Quotes_Popup.py
+ ┃ ┃ ┣ 📜Quotes_Popup_Call.py
+ ┃ ┃ ┣ 📜Quotes_Service.py
+ ┃ ┃ ┣ 📜Quotes_delete_Call.py
+ ┃ ┃ ┣ 📜Quotes_edit_Call.py
+ ┃ ┃ ┣ 📜Quotes_edit_Call.py
+ ┃ ┃ ┣ 📜rc_choose(old).py
+ ┃ ┃ ┣ 📜rc_choose.py
+ ┃ ┃ ┣ 📜rc_edit(old).py
+ ┃ ┃ ┣ 📜rc_edit.py
+ ┃ ┃ ┣ 📜rc_input(old).py
+ ┃ ┃ ┣ 📜rc_input.py
+ ┃ ┃ ┗ 📜rc_popup.py
+ ┃ ┣ 📂Sleep
+ ┃ ┃ ┣ 📜Sleep.py
+ ┃ ┃ ┣ 📜Sleep_Input_GUI.py 
+ ┃ ┃ ┣ 📜Sleep_Plot.py
+ ┃ ┃ ┣ 📜Sleep_Recommendation.py
+ ┃ ┃ ┣ 📜Sleep_Service.py
+ ┃ ┃ ┣ 📜Sleep_Visualization_GUI.py
+ ┃ ┃ ┗ 📜resource_rc.py
+ ┃ ┗ 📜main.py
  ┗ 📜README.md
  ```
  
@@ -77,7 +214,7 @@ pip install plotly
 ## Cara Menjalankan Program
 Langkah-langkah proses setup program adalah sebagai berikut:
 1. Clone Repository Github ini
-2. Run program dengan mengetikkan `py src/Main.py` pada terminal pada directory yang sesuai dengan directory lokasi clone program 
+2. Run program dengan mengetikkan `cd src` untuk berpindah ke directory src, lalu ketikkan `Main.py` pada terminal
 
 ## Daftar Modul
 <table>
