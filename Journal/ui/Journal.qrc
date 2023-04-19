@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="Journal">
+  <qresource prefix="Resources">
     <file>Resources/background.jpg</file>
     <file>Resources/journal input fg.png</file>
     <file>Resources/journal list fg.png</file>

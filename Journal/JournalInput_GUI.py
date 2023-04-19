@@ -23,13 +23,15 @@ class JournalInput(object):
         self.centralwidget.setMinimumSize(QtCore.QSize(800, 600))
         self.centralwidget.setMaximumSize(QtCore.QSize(1920, 1080))
         self.centralwidget.setStyleSheet("background: transparent;\n"
-"image: transparent;")
+"image: transparent;\n"
+f"background-image: url({main.image_path});")
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setEnabled(True)
         self.widget.setGeometry(QtCore.QRect(0, -70, 1361, 941))
         self.widget.setAutoFillBackground(False)
-        self.widget.setStyleSheet("image: url(:/Journal/Resources/journal input fg.png);")
+        self.widget.setStyleSheet("image: url(:/Journal/Resources/journal input fg.png);\n"
+"image: url(:/Resources/Resources/journal input fg.png);")
         self.widget.setObjectName("widget")
         self.scrollArea = QtWidgets.QScrollArea(self.widget)
         self.scrollArea.setGeometry(QtCore.QRect(130, 380, 1101, 271))
@@ -87,5 +89,4 @@ class JournalInput(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Journal Input"))
-
 import Journal.Journal_rc
