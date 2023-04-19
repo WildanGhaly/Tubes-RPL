@@ -28,7 +28,8 @@ class QInput(QS.Quotes_Service):
         self.label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet("background-image: url(:/newPrefix/quotes input fg.png);")
+        self.label.setStyleSheet("background-image: url(:/newPrefix/quotes input fg b.png);")
+        # self.label.setStyleSheet("background-image: url(:/newPrefix/quotes input fg.png);")
         self.label.setText("")
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -46,6 +47,12 @@ class QInput(QS.Quotes_Service):
         self.input.setObjectName("InputQuotes")
         font = QFont("Arial", 18)
         self.input.setFont(font)
+
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setObjectName(u"backButton")
+        self.backButton.setGeometry(QRect(25, 25, 88, 86))
+        self.backButton.setStyleSheet("QPushButton{background: transparent;}")
+        self.backButton.clicked.connect(self.back)
 
 
         # MainWindow.setCentralWidget(self.centralwidget)
@@ -73,6 +80,12 @@ class QInput(QS.Quotes_Service):
                 self.main_menu = Main_Menu_GUI()
                 self.main_menu.show()
                 self.hide()
+
+    def back(self):
+        from Quotes.Choose_Call import Quotes_Choose_Call
+        self.main_menu = Quotes_Choose_Call()
+        self.main_menu.show()
+        self.hide()
 
 import Quotes.rc_input
 # import QI_rc
