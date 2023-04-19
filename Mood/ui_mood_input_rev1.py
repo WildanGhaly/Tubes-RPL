@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-background_image = "Mood/images/default_background.jpg"
+import MainMenu.mainmenu as mainmenu
 
 
 class Ui_Form(object):
@@ -33,7 +33,7 @@ class Ui_Form(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet(f"background-image: url({background_image});\n"
+        self.label.setStyleSheet(f"background-image: url({mainmenu.image_path});\n"
 "border-image: url(:/newPrefix/images/mood input fg with back.png);")
         self.label.setText("")
         self.label.setObjectName("label")
