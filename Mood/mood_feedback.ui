@@ -47,7 +47,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/PrefixV1/images/mood prediction rate fg.png);</string>
+    <string notr="true">border-image: url(:/Netral/images/new bg mood prediction rate fg.png);</string>
    </property>
    <property name="text">
     <string/>
