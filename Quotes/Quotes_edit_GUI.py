@@ -25,15 +25,16 @@ class QEdit(QS.Quotes_Service):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(0, -20, 1366, 720))
+        self.label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet("background-image: url(:/newPrefix/quotes edit fg.png);")
+        # self.label.setStyleSheet("background-image: url(:/newPrefix/quotes edit fg.png);")
+        self.label.setStyleSheet("background-image: url(:/newPrefix/quotes edit fg b.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
         self.quotes_list = QtWidgets.QComboBox(self.centralwidget)
-        self.quotes_list.setGeometry(QtCore.QRect(132, 258, 1101, 86))
+        self.quotes_list.setGeometry(QtCore.QRect(132, 278, 1101, 86))
         self.quotes_list.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.quotes_list.setStyleSheet("")
         self.quotes_list.setObjectName("quotes_list")
@@ -42,7 +43,7 @@ class QEdit(QS.Quotes_Service):
         self.adding_quotes_Cbox()
 
         self.new_quotes = QtWidgets.QTextEdit(self.centralwidget)
-        self.new_quotes.setGeometry(QtCore.QRect(130, 425, 1102, 88))
+        self.new_quotes.setGeometry(QtCore.QRect(130, 445, 1102, 88))
         self.new_quotes.setStyleSheet("background-color: transparent;")
         self.new_quotes.setObjectName("new_quotes")
         font = QFont("Arial", 15)
@@ -50,11 +51,17 @@ class QEdit(QS.Quotes_Service):
 
 
         self.Submit = QtWidgets.QPushButton(self.centralwidget)
-        self.Submit.setGeometry(QtCore.QRect(1080, 540, 141, 71))
+        self.Submit.setGeometry(QtCore.QRect(1080, 560, 141, 71))
         self.Submit.setStyleSheet("background-color: transparent;")
         self.Submit.setText("")
         self.Submit.setObjectName("Submit")
         self.Submit.clicked.connect(self.edit_quote_submit)
+
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setObjectName(u"backButton")
+        self.backButton.setGeometry(QtCore.QRect(25, 25, 88, 86))
+        self.backButton.setStyleSheet("QPushButton{background: transparent;}")
+        self.backButton.clicked.connect(self.back)
 
 
         # MainWindow.setCentralWidget(self.centralwidget)
@@ -94,7 +101,11 @@ class QEdit(QS.Quotes_Service):
             self.main_menu.show()
             self.hide()
             
-
+    def back(self):
+        from Quotes.Choose_Call import Quotes_Choose_Call
+        self.main_menu = Quotes_Choose_Call()
+        self.main_menu.show()
+        self.hide()
             
 import Quotes.rc_edit
 
