@@ -7,6 +7,8 @@ class Ui_MainWindows(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1366, 720)
+        # self.centralwidget = QtWidgets.QWidget(MainWindow)
+        # self.centralwidget.setObjectName("centralwidget")
         self.centralwidget_information = QtWidgets.QWidget(MainWindow)
         self.centralwidget_information.setObjectName("centralwidget")
         self.label_information = QtWidgets.QLabel(self.centralwidget_information)
@@ -51,8 +53,22 @@ class Ui_MainWindows(object):
         self.pushButton_information_5.clicked.connect(self.journalList)
         # MainWindow.setCentralWidget(self.centralwidget_information)
 
+        self.backButton = QtWidgets.QPushButton(self.centralwidget_information)
+        self.backButton.setObjectName(u"backButton")
+        self.backButton.setGeometry(QtCore.QRect(25, 25, 88, 86))
+        self.backButton.setStyleSheet("QPushButton{background: transparent;}")
+        self.backButton.clicked.connect(self.back)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def back(self):
+        print("Back button clicked")
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
+        self.hide()
+    
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
