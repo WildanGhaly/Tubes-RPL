@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import MainMenu.mainmenu as mainmenu
 
 
 class Ui_mood_feedback(object):
@@ -21,7 +22,8 @@ class Ui_mood_feedback(object):
         self.background_label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.background_label.setMinimumSize(QtCore.QSize(1366, 720))
         self.background_label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.background_label.setStyleSheet("border-image: url(:/PrefixV1/images/mood prediction rate fg.png);")
+        self.background_label.setStyleSheet(f"background-image: url({mainmenu.image_path});\n"
+            "border-image: url(:/Netral/images/new bg mood prediction rate fg.png);")
         self.background_label.setText("")
         self.background_label.setObjectName("background_label")
         self.rating_slider = QtWidgets.QSlider(mood_feedback)

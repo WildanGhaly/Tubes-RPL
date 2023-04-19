@@ -34,7 +34,7 @@ class Ui_Form(object):
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
         self.label.setStyleSheet(f"background-image: url({mainmenu.image_path});\n"
-"border-image: url(:/newPrefix/images/mood input fg with back.png);")
+"border-image: url(:/Netral/images/new bg mood input fg.png);")
         self.label.setText("")
         self.label.setObjectName("label")
         self.horizontalSlider_joy = QtWidgets.QSlider(Form)

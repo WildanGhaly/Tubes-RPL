@@ -32,7 +32,7 @@ class Ui_Form(object):
         self.mood_visual_background.setMinimumSize(QtCore.QSize(1366, 720))
         self.mood_visual_background.setMaximumSize(QtCore.QSize(1366, 720))
         self.mood_visual_background.setStyleSheet(f"background-image: url({mainmenu.image_path});\n"
-                "border-image: url(:/PrefixV1/images/mood visualization fg.png);")
+                "border-image: url(:/Netral/images/new bg mood visualization fg.png);")
         self.mood_visual_background.setText("")
         self.mood_visual_background.setObjectName("mood_visual_background")
         self.label_one_day_mood = QtWidgets.QLabel(Form)
