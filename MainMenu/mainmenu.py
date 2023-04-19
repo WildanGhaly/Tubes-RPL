@@ -14,6 +14,7 @@ first_run = True
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         global first_run
+        global pixmap
         print(first_run)
         if first_run:
             self.getRandomQuotes()
@@ -153,7 +154,7 @@ class Ui_MainWindow(object):
         file_path, _ = file_dialog.getOpenFileName()
             
         if file_path:
-            pixmap = QtGui.QPixmap(file_path)
+            pixmap = QtGui.QPixmap(file_path).scaled(self.label.width(), self.label.height())
             self.background_changed = True
         else:
             return
