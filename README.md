@@ -44,6 +44,7 @@
 * [Requirements](#requirements)
 * [Cara Menjalankan Program](#cara-menjalankan-program)
 * [Daftar Modul](#daftar-modul)
+* [Daftar Tabel Basis Data](#daftar-tabel-basis-data)
 * [Acknowledgements](#acknowledgements)
 
 ## Deskripsi Singkat 
@@ -85,12 +86,11 @@ Langkah-langkah proses setup program adalah sebagai berikut:
     <tr>
         <td>1.</td>
         <td colspan="2", align= "left">Main Menu</td>
-        <td>13521008</td>
+        <td>13521008, 13521012</td>
     </tr>
     <tr>
         <td>2.</td>
-        <td colspan="2", align= "left">Mood</td>
-        <td></td>
+        <td colspan="3", align= "left">Mood</td>
     </tr>
     <tr>
         <td></td>
@@ -112,8 +112,7 @@ Langkah-langkah proses setup program adalah sebagai berikut:
     </tr>
     <tr>
         <td>3.</td>
-        <td colspan="2", align= "left">Journal</td>
-        <td></td>
+        <td colspan="3", align= "left">Journal</td>
     </tr>
     <tr>
         <td></td>
@@ -129,64 +128,132 @@ Langkah-langkah proses setup program adalah sebagai berikut:
     </tr>
         <tr>
         <td>4.</td>
-        <td colspan="2", align= "left">Sleep</td>
-        <td></td>
+        <td colspan="3", align= "left">Sleep</td>
     </tr>
     <tr>
         <td></td>
         <td>a.</td>
         <td>Sleep Input</td>
-        <td></td>
+        <td>13521012, 13521025</td>
     </tr>
     <tr>
         <td></td>
         <td>b.</td>
         <td>Sleep Visualization</td>
-        <td></td>
+        <td>13521012</td>
     </tr>
     <tr>
         <td></td>
         <td>c.</td>
         <td>Sleep Recommendation</td>
-        <td></td>
+        <td>13521012</td>
     </tr>
     </tr>
         <tr>
         <td>5.</td>
-        <td colspan="2", align= "left">Quotes</td>
-        <td></td>
+        <td colspan="3", align= "left">Quotes</td>
     </tr>
     <tr>
         <td></td>
         <td>a.</td>
         <td>Choose Option</td>
-        <td></td>
+        <td>13521025</td>
     </tr>
     <tr>
         <td></td>
         <td>b.</td>
         <td>Add Quotes</td>
-        <td></td>
+        <td>13521015, 13521025</td>
     </tr>
     <tr>
         <td></td>
         <td>c.</td>
         <td>Edit Quotes</td>
-        <td></td>
+        <td>13521025</td>
     </tr>
     <tr>
         <td>6.</td>
         <td colspan="2", align= "left">Information</td>
         <td>13521008, 13521015</td>
     </tr>
+    <tr>
+        <td>7.</td>
+        <td colspan="2", align= "left">Module Design</td>
+        <td>13521008</td>
+    </tr>
 </table>
 
 
 ## Daftar Tabel Basis Data
+<h4>Mood.csv</h4>
+<table>
+    <tr>
+        <td colspan="10", align = "center"><center>Atribut</center></td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>ID</td>
+        <td>Joy</td>
+        <td>Sadness</td>
+        <td>Anger</td>
+        <td>Fear</td>
+        <td>Disgust</td>
+        <td>Surprise</td>
+        <td>Trust</td>
+        <td>Anticipation</td>
+    </tr>
+</table>
 
+<h4>Feedback.csv</h4>
+<table>
+    <tr>
+        <td colspan="2", align = "center"><center>Atribut</center></td>
+    </tr>
+    <tr>
+        <td>Rating</td>
+        <td>Feedback</td>
+    </tr>
+</table>
 
+<h4>Journal.csv</h4>
+<table>
+    <tr>
+        <td colspan="3", align = "center"><center>Atribut</center></td>
+    </tr>
+    <tr>
+        <td>ID</td>
+        <td>IsiJournal</td>
+        <td>JudulJournal</td>
+    </tr>
+</table>
+
+<h4>Sleep.csv</h4>
+<table>
+    <tr>
+        <td colspan="6", align = "center"><center>Atribut</center></td>
+    </tr>
+    <tr>
+        <td>ID(HHBBTTTTJJMM)</td>
+        <td>jamTidurStart</td>
+        <td>menitTidurStart</td>
+        <td>jamTidurEnd</td>
+        <td>menitTidurEnd</td>
+        <td>durasi(menit)</td>
+    </tr>
+</table>
+
+<h4>Quotes.csv</h4>
+<table>
+    <tr>
+        <td colspan="2", align = "center"><center>Atribut</center></td>
+    </tr>
+    <tr>
+        <td>Number</td>
+        <td>Quote</td>
+    </tr>
+</table>
 
 ## Acknowledgements
 - Tuhan Yang Maha Esa
-- Dosen Mata Kuliah yaitu Pak Rinaldi (K1), Bu Ulfa (K2), dan Pak Rila (K3)
-- Kakak-Kakak Asisten Mata Kuliah Strategi Algoritma IF2211
+- Dosen Mata Kuliah Rekayasa Perangkat Lunak IF2250
+- Kakak-Kakak Asisten Mata Kuliah Rekayasa Perangkat Lunak IF2250
