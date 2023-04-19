@@ -10,6 +10,12 @@
     <file>images/SubmitButtonNoText.png</file>
     <file>images/default_background.jpg</file>
   </qresource>
+  <qresource prefix="Netral">
+    <file>images/new bg mood input fg.png</file>
+    <file>images/new bg mood prediction fg.png</file>
+    <file>images/new bg mood prediction rate fg.png</file>
+    <file>images/new bg mood visualization fg.png</file>
+  </qresource>
   <qresource prefix="PrefixV1">
     <file>images/default_background.jpg</file>
     <file>images/mood input fg.png</file>
