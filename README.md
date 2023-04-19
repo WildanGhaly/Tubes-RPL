@@ -62,12 +62,13 @@ Hear Ur Feelings Tool (H.U.F.T) adalah sebuah aplikasi perangkat lunak yang menc
  ```
  
 ## Requirements
-1. Bahasa Pemrograman Python (sudah dilengkapi dengan library pyqt5 dan matplotlib)
+1. Bahasa Pemrograman Python (sudah dilengkapi dengan library pyqt5, matplotlib, plotly)
 
 Instalasi pada terminal:
 ```bash
 pip install pyqt5
 pip install matplotlib
+pip install plotly
 ```
 
 2. Aplikasi Code Runner (Rekomendasi: Visual Studio Code)
