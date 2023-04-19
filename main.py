@@ -9,6 +9,6 @@ from datetime import date, datetime
 app = QtWidgets.QApplication(sys.argv)
 
 window = uw()
-window.show()
+# window.show()
 
 sys.exit(app.exec_())
