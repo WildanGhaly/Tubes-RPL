@@ -30,7 +30,7 @@ class QEdit(QS.Quotes_Service):
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
         # self.label.setStyleSheet("background-image: url(:/newPrefix/quotes edit fg.png);")
         self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
-                                 "border-image: url(:/newPrefix/quotes edit fg b.png);")
+                                 "border-image: url(./Quotes/image/quotes edit fg black.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
