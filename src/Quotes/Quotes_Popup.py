@@ -32,7 +32,7 @@ class QPopUp(QS.Quotes_Service):
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(0, 0, 1361, 720))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("./Quotes/image/mendapat quotes fg black.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("../image/Quotes/mendapat quotes fg black.png"))
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QPlainTextEdit(MainWindow)
         self.label_4.setGeometry(QtCore.QRect(240, 395, 891, 151))

@@ -35,7 +35,7 @@ class QChoose(QS.Quotes_Service):
 
         # self.label.setStyleSheet("background-image: url(:/newPrefix/select quotes menu fg.png);")
         self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
-"border-image: url(./Quotes/image/select quotes menu fg.png);")
+"border-image: url(../image/Quotes/select quotes menu fg.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
