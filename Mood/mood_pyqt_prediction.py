@@ -15,11 +15,18 @@ class Mood_Prediction(QWidget, uw.Ui_Form):
         self.setupUi(self)
         self.calculate_mood_prediction()
         self.mood_prediction_next_button.clicked.connect(self.do_something_next)
+        self.mood_prediction_saran_button.clicked.connect(self.do_something_saran)
     
     def do_something_next(self):
         from MainMenu.main_menu_GUI import Main_Menu_GUI as uw
         self.main_menu = uw()
         self.main_menu.show()
+        self.hide()
+    
+    def do_something_saran(self):
+        from Mood.mood_pyqt_feedback import Mood_Feedback as uw
+        self.saran = uw()
+        self.saran.show()
         self.hide()
     
     def calculate_mood_prediction(self):
