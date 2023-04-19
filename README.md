@@ -172,6 +172,12 @@ Langkah-langkah proses setup program adalah sebagai berikut:
         <td>13521025</td>
     </tr>
     <tr>
+        <td></td>
+        <td>d.</td>
+        <td>Delete Quotes</td>
+        <td>13521025</td>
+    </tr>
+    <tr>
         <td>6.</td>
         <td colspan="2", align= "left">Information</td>
         <td>13521008, 13521015</td>
