@@ -13,7 +13,7 @@ import shutil
 import pathlib
 
 first_run = True
-image_path = "image/background.jpg"
+image_path = "../image/background.jpg"
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
