@@ -30,7 +30,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/Journal/Resources/background.jpg);</string>
+   <string notr="true">background-image: url(:/Resources/Resources/background.jpg);</string>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -69,7 +69,8 @@ background-image: url(:/Journal/background.jpg);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/Journal/Resources/journal input fg.png);</string>
+     <string notr="true">image: url(:/Journal/Resources/journal input fg.png);
+image: url(:/Resources/Resources/journal input fg.png);</string>
     </property>
     <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
