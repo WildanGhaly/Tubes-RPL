@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qtjournalinput.ui'
+# Form implementation generated from reading ui file 'ui/qtjournalinput.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import MainMenu.mainmenu as main
+
 class JournalInput(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -24,17 +25,17 @@ class JournalInput(object):
         self.centralwidget.setMaximumSize(QtCore.QSize(1920, 1080))
         self.centralwidget.setStyleSheet("background: transparent;\n"
 "image: transparent;\n"
-f"background-image: url({main.image_path});")
+)
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setEnabled(True)
-        self.widget.setGeometry(QtCore.QRect(0, -70, 1361, 941))
+        self.widget.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.widget.setAutoFillBackground(False)
-        self.widget.setStyleSheet("image: url(:/Journal/Resources/journal input fg.png);\n"
-"image: url(:/Resources/Resources/journal input fg.png);")
+        self.widget.setStyleSheet("image: url(:/Resources/Resources/journal input fg.png);"
+                                  f"background-image: url({main.image_path});")
         self.widget.setObjectName("widget")
         self.scrollArea = QtWidgets.QScrollArea(self.widget)
-        self.scrollArea.setGeometry(QtCore.QRect(130, 380, 1101, 271))
+        self.scrollArea.setGeometry(QtCore.QRect(130, 269, 1101, 269))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -50,7 +51,7 @@ f"background-image: url({main.image_path});")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.ScrollAreaWidgetContents = QtWidgets.QWidget()
-        self.ScrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1099, 269))
+        self.ScrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1099, 267))
         self.ScrollAreaWidgetContents.setObjectName("ScrollAreaWidgetContents")
         self.JournalContent = QtWidgets.QPlainTextEdit(self.ScrollAreaWidgetContents)
         self.JournalContent.setGeometry(QtCore.QRect(0, 0, 1101, 271))
@@ -65,10 +66,16 @@ f"background-image: url({main.image_path});")
         self.JournalContent.setFont(font)
         self.JournalContent.setPlaceholderText("")
         self.JournalContent.setObjectName("JournalContent")
+        self.JournalContent.setStyleSheet("\n"
+            "font: 700 18pt \"Arial\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
         self.scrollArea.setWidget(self.ScrollAreaWidgetContents)
         self.SubmitButton = QtWidgets.QPushButton(self.widget)
         self.SubmitButton.setEnabled(True)
-        self.SubmitButton.setGeometry(QtCore.QRect(1060, 670, 171, 71))
+        self.SubmitButton.setGeometry(QtCore.QRect(1061, 562, 171, 71))
         self.SubmitButton.setAutoFillBackground(False)
         self.SubmitButton.setStyleSheet("background: transparent;\n"
 "image: transparent;")
@@ -76,7 +83,7 @@ f"background-image: url({main.image_path});")
         self.SubmitButton.setFlat(True)
         self.SubmitButton.setObjectName("SubmitButton")
         self.backButton = QtWidgets.QPushButton(self.widget)
-        self.backButton.setGeometry(QtCore.QRect(30, 140, 81, 81))
+        self.backButton.setGeometry(QtCore.QRect(30, 30, 81, 81))
         self.backButton.setStyleSheet("image:transparent;\n"
 "background: transparent;")
         self.backButton.setText("")
