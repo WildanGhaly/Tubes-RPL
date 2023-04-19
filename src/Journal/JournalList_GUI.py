@@ -49,6 +49,12 @@ class JournalList(object):
         self.contentView.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.contentView.setWordWrap(True)
         self.contentView.setObjectName("contentView")
+        self.contentView.setStyleSheet("\n"
+            "font: 700 18pt \"Arial\";\n"
+            "alternate-background-color: rgb(255, 85, 0);\n"
+            "selection-color: rgb(170, 0, 0);\n"
+            "selection-background-color: rgb(170, 0, 0);\n"
+            "border-color: rgb(0, 0, 0);\n")
         self.dRight = QtWidgets.QPushButton(self.widget)
         self.dRight.setGeometry(QtCore.QRect(620, 570, 51, 51))
         self.dRight.setAutoFillBackground(False)
