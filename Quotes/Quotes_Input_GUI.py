@@ -30,7 +30,7 @@ class QInput(QS.Quotes_Service):
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
         # self.label.setStyleSheet("background-image: url(./Quotes/background.jpg)")
         self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
-"border-image: url(:/newPrefix/quotes input fg b.png);")
+"border-image: url(./Quotes/image/quotes input fg black.png);")
         
         # self.label.setStyleSheet("border-image: url(:/newPrefix/quotes input fg b.png);")
         # self.label.setStyleSheet("background-image: url(:/newPrefix/quotes input fg.png);")
