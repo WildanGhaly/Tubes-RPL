@@ -24,7 +24,9 @@ class QChoose(QS.Quotes_Service):
         self.label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet("background-image: url(:/newPrefix/select quotes menu fg.png);")
+        # self.label.setStyleSheet("background-image: url(:/newPrefix/select quotes menu fg.png);")
+        self.label.setStyleSheet("\n"
+"background-image: url(:/newPrefix/select quotes menu fg b.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
@@ -41,6 +43,13 @@ class QChoose(QS.Quotes_Service):
         self.edit_choose.setText("")
         self.edit_choose.setObjectName("edit_choose")
         self.edit_choose.clicked.connect(self.edit)
+
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setObjectName(u"backButton")
+        self.backButton.setGeometry(QtCore.QRect(25, 25, 88, 86))
+        self.backButton.setStyleSheet("QPushButton{background: transparent;}")
+        self.backButton.clicked.connect(self.back)
+
 
         # MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -71,6 +80,12 @@ class QChoose(QS.Quotes_Service):
         from Quotes.Quotes_edit_Call import Quotes_Edit_Call
         self.add_quotes_window = Quotes_Edit_Call()
         self.add_quotes_window.show()
+        self.hide()
+    
+    def back(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI
+        self.main_menu = Main_Menu_GUI()
+        self.main_menu.show()
         self.hide()
 
 
