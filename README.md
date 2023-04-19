@@ -44,8 +44,10 @@
 * [Requirements](#requirements)
 * [Cara Menjalankan Program](#cara-menjalankan-program)
 * [Daftar Modul](#daftar-modul)
+* [Tampilan Interface Program](#tampilan-interface-program)
 * [Daftar Tabel Basis Data](#daftar-tabel-basis-data)
 * [Acknowledgements](#acknowledgements)
+
 
 ## Deskripsi Singkat 
 Hear Ur Feelings Tool (H.U.F.T) adalah sebuah aplikasi perangkat lunak yang mencatat suasana hati keseharian dari penggunanya. Dalam aplikasi ini, pengguna bisa mengekspresikan suasana hatinya. Aplikasi ini nantinya juga bisa mengolah data dan memprediksi suasana hati pengguna. Selain itu, aplikasi ini juga dapat membantu untuk memberikan motivasi dan semangat kepada pengguna. Aplikasi ini dibuat untuk satu pengguna dimana pengguna tidak perlu untuk melakukan registrasi atau login dalam mencatat mood kesehariannya. Saat membuka aplikasi, pengguna akan diberi kata-kata mutiara atau suatu quote random untuk membantu pengguna dalam menghadapi mood yang dirasakannya. Pengguna juga dapat menambahkan quote sendiri yang dapat diubah dan dihapus ke depannya. Di dalam aplikasi, pengguna dapat memasukkan kondisi mood harian yang dialaminya. Mood yang dapat dicatat antara lain kondisi mood terror, grief, rage, loathing, vigilance, ecstasy, amazement, dan admiration (diambil dari Plutchik Wheel Of Emotions). Mood yang dimasukkan juga dapat disunting setelahnya. Jika pengguna sudah melakukan pengisian kondisi mood selama 15 hari, aplikasi akan menampilkan prediksi mood dan pengguna bisa memberi masukkan terkait hasil prediksi tersebut. Selain masukan mood, aplikasi ini juga menyediakan fitur pencatatan jurnal harian yang bisa menjadi semacam notes untuk mencatat keseharian pengguna dan riwayat tidur untuk mencatat lama waktu tidur malam hari. Riwayat masukan mood dan riwayat tidur dapat dilihat pada aplikasi dalam bentuk statistik atau grafik sederhana. Hasil catatan jurnal juga dapat dicek riwayatnya dalam bentuk tabel sederhana.
@@ -188,6 +190,9 @@ Langkah-langkah proses setup program adalah sebagai berikut:
         <td>13521008</td>
     </tr>
 </table>
+
+## Tampilan Interface Program
+![Screenshot 2023-04-19 172424](https://user-images.githubusercontent.com/91790457/233046998-b8c59510-17d7-4b7a-b4ae-d5108b96ece4.png)
 
 
 ## Daftar Tabel Basis Data
