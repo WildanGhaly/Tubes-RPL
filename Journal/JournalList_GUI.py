@@ -22,14 +22,13 @@ class JournalList(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(800, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1920, 1080))
-        MainWindow.setStyleSheet("background-image: url(:/Journal/background.jpg);")
+        MainWindow.setStyleSheet(f"background-image: url({main.image_path});")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.widget.setStyleSheet("background: transparent;\n"
-"image: url(:/Journal/journal list fg.png);"
-f"background-image: url({main.image_path});")
+"image: url(:/Journal/journal list fg.png);")
         self.widget.setObjectName("widget")
         self.contentFrame = QtWidgets.QFrame(self.widget)
         self.contentFrame.setGeometry(QtCore.QRect(132, 270, 1101, 267))
