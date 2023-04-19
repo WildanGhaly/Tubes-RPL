@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
 from Journal.Journal import Journal as jrn
 import Journal.JournalDatabase as JournalDatabase
+import MainMenu.mainmenu as main
 class JournalInput(object):
     DB = JournalDatabase.JournalDatabase()
     def setupUi(self, MainWindow):
@@ -26,7 +27,8 @@ class JournalInput(object):
         self.centralwidget.setMinimumSize(QtCore.QSize(800, 600))
         self.centralwidget.setMaximumSize(QtCore.QSize(1920, 1080))
         self.centralwidget.setStyleSheet("background: transparent;\n"
-"image: transparent;")
+"image: transparent;\n"
+f"background-image: url({main.image_path});")
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setEnabled(True)
