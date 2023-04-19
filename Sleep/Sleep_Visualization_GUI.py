@@ -57,7 +57,7 @@ class Ui_Widget(QWidget, Sleep, uw.Ui_Form):
     
     def setupUi(self, Widget):
         self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
+        # self.setGeometry(self.left, self.top, self.width, self.height)
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
         Widget.resize(1366, 720)
