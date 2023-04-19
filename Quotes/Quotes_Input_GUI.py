@@ -14,7 +14,7 @@ import Quotes.Quotes_Service as QS
 import tkinter as tk
 from tkinter import messagebox
 from PyQt5.QtCore import QRect, QPropertyAnimation
-
+import MainMenu.mainmenu as main
 
 class QInput(QS.Quotes_Service):
     def setupUi(self, MainWindow):
@@ -28,7 +28,11 @@ class QInput(QS.Quotes_Service):
         self.label.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
-        self.label.setStyleSheet("background-image: url(:/newPrefix/quotes input fg b.png);")
+        # self.label.setStyleSheet("background-image: url(./Quotes/background.jpg)")
+        self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
+"border-image: url(:/newPrefix/quotes input fg b.png);")
+        
+        # self.label.setStyleSheet("border-image: url(:/newPrefix/quotes input fg b.png);")
         # self.label.setStyleSheet("background-image: url(:/newPrefix/quotes input fg.png);")
         self.label.setText("")
         self.label.setObjectName("label")
