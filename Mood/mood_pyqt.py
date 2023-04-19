@@ -13,6 +13,7 @@ class Mood_Form(QWidget, uMoodInput, Mood_Service):
         Mood_Service.__init__(self)
         self.setupUi(self)
         self.submitButtonMood.clicked.connect(self.do_something)
+        self.pushButton_back.clicked.connect(self.back_to_main_menu)
         
     def do_something(self):
         now = datetime.now().strftime("%H%M%S")
@@ -38,6 +39,11 @@ class Mood_Form(QWidget, uMoodInput, Mood_Service):
         self.main_menu.show()
         self.hide()
 
+    def back_to_main_menu(self):
+        from MainMenu.main_menu_GUI import Main_Menu_GUI as uw
+        self.main_menu = uw()
+        self.main_menu.show()
+        self.hide()
 
 # app = QtWidgets.QApplication(sys.argv)
 

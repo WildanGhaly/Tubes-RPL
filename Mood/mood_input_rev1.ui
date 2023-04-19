@@ -62,7 +62,8 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/PrefixV1/images/mood input fg.png);</string>
+    <string notr="true">background-image: url(:/PrefixV1/images/mood input fg.png);
+background-image: url(:/newPrefix/images/mood input fg with back.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -223,6 +224,34 @@ border-image: url(:/PrefixV1/images/submit button.png);</string>
    </property>
    <property name="flat">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_back">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>81</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
