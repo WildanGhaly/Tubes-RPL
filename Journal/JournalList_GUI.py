@@ -9,9 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import MainMenu.mainmenu as main
 
-
-class Ui_MainWindow(object):
+class JournalList(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1366, 720)
@@ -22,14 +22,14 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(800, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1920, 1080))
-        MainWindow.setStyleSheet("background-image: url(:/Journal/background.jpg);")
+        MainWindow.setStyleSheet(f"background-image: url({main.image_path});")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setStyleSheet("background-image: url(:/Journal/Resources/background.jpg);")
+        self.centralwidget.setStyleSheet(f"background-image: url({main.image_path});")
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(0, 0, 1366, 720))
-        self.widget.setStyleSheet("background: transparent;\n"
-"image: url(:/Journal/Resources/journal list fg.png);")
+        self.widget.setStyleSheet("image: url(:/Resources/Resources/journal list fg.png);\n"
+"background : transparent")
         self.widget.setObjectName("widget")
         self.contentFrame = QtWidgets.QFrame(self.widget)
         self.contentFrame.setGeometry(QtCore.QRect(132, 270, 1101, 267))
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.dRight.setText("")
         self.dRight.setObjectName("dRight")
         self.dLeft = QtWidgets.QPushButton(self.widget)
-        self.dLeft.setGeometry(QtCore.QRect(690, 570, 51, 51))
+        self.dLeft.setGeometry(QtCore.QRect(700, 570, 51, 51))
         self.dLeft.setAutoFillBackground(False)
         self.dLeft.setStyleSheet("image: transparent;")
         self.dLeft.setText("")
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
 "background: transparent;")
         self.dateChoose.setText("")
         self.dateChoose.setObjectName("dateChoose")
-        MainWindow.setCentralWidget(self.centralwidget)
+        # MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -86,4 +86,4 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "JournalList"))
-import Journal_rc
+import Journal.Journal_rc
