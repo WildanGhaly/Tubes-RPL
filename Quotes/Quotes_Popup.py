@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QGraphicsOpacityEffect
-import Quotes_Service as QS
+import Quotes.Quotes_Service as QS
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QTextCharFormat, QColor
@@ -52,13 +52,13 @@ class QPopUp(QS.Quotes_Service):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
     
 
-import rc
+import Quotes.rc_popup
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = QPopUp()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Dialog = QtWidgets.QDialog()
+#     ui = QPopUp()
+#     ui.setupUi(Dialog)
+#     Dialog.show()
+#     sys.exit(app.exec_())
