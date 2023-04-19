@@ -64,7 +64,7 @@ class QEdit(QS.Quotes_Service):
         self.backButton.setStyleSheet("QPushButton{background: transparent;}")
         self.backButton.clicked.connect(self.back)
 
-        
+
         # MainWindow.setCentralWidget(self.centralwidget)
         # self.menubar = QtWidgets.QMenuBar(MainWindow)
         # self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 21))
@@ -78,7 +78,7 @@ class QEdit(QS.Quotes_Service):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def adding_quotes_Cbox(self):
-        with open('Quotes/Quotes.csv', 'r') as csvfile:  # Replace with the name of your CSV file
+        with open('Quotes/Quotes.csv', 'r') as csvfile:
             reader = csv.reader(csvfile)
             next(reader)
             for row in reader:
