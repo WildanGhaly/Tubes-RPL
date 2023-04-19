@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import MainMenu.mainmenu as mainmenu
 
 
 
@@ -12,7 +12,7 @@ class Ui_MainWindows(object):
         self.label_history = QtWidgets.QLabel(self.centralwidget_history)
         self.label_history.setGeometry(QtCore.QRect(0, 0, 1371, 721))
         self.label_history.setText("")
-        self.label_history.setPixmap(QtGui.QPixmap('history/background.jpg'))
+        self.label_history.setPixmap(QtGui.QPixmap(f"{mainmenu.image_path}"))
         self.label_history.setObjectName("label")
         self.label_history_2 = QtWidgets.QLabel(self.centralwidget_history)
         self.label_history_2.setGeometry(QtCore.QRect(0, 0, 1361, 721))
