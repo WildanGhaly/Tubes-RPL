@@ -150,7 +150,7 @@ class Ui_MainWindow(object):
         print("Change Background")
         file_dialog = QtWidgets.QFileDialog()
         file_dialog.setNameFilter("Images (*.jpg)")
-        file_dialog.setDefaultSuffix("png")
+        file_dialog.setDefaultSuffix("jpg")
         file_path, _ = file_dialog.getOpenFileName()
             
         if file_path:
