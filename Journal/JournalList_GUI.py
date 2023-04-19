@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import MainMenu.mainmenu as main
 
 class JournalList(object):
     def setupUi(self, MainWindow):
@@ -28,7 +28,8 @@ class JournalList(object):
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(0, 0, 1366, 720))
         self.widget.setStyleSheet("background: transparent;\n"
-"image: url(:/Journal/journal list fg.png);")
+"image: url(:/Journal/journal list fg.png);"
+f"background-image: url({main.image_path});")
         self.widget.setObjectName("widget")
         self.contentFrame = QtWidgets.QFrame(self.widget)
         self.contentFrame.setGeometry(QtCore.QRect(132, 270, 1101, 267))
