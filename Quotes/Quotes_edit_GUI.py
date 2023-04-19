@@ -14,7 +14,7 @@ from PyQt5.QtGui import QFont
 from tkinter import messagebox
 import csv
 import Quotes.Quotes_Service as QS
-
+import MainMenu.mainmenu as main
 
 class QEdit(QS.Quotes_Service):
     def setupUi(self, MainWindow):
@@ -29,7 +29,8 @@ class QEdit(QS.Quotes_Service):
         self.label.setMinimumSize(QtCore.QSize(1366, 720))
         self.label.setMaximumSize(QtCore.QSize(1366, 720))
         # self.label.setStyleSheet("background-image: url(:/newPrefix/quotes edit fg.png);")
-        self.label.setStyleSheet("background-image: url(:/newPrefix/quotes edit fg b.png);")
+        self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
+                                 "border-image: url(:/newPrefix/quotes edit fg b.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
