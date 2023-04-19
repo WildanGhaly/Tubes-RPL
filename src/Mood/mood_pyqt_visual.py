@@ -75,10 +75,10 @@ class Mood_Visual(QWidget, uw.Ui_Form):
             plt.grid(True)
             plt.tight_layout()
             plt.legend()
-            plt.savefig('./Mood/images/mood_visual_one_day_result.png')
+            plt.savefig('../image/Mood/mood_visual_one_day_result.png')
             
             self.label_one_day_mood.clear()
-            self.label_one_day_mood.setStyleSheet("border-image: url(./Mood/images/mood_visual_one_day_result.png);")
+            self.label_one_day_mood.setStyleSheet("border-image: url(../image/Mood/mood_visual_one_day_result.png);")
             
     def calculate_one_week(self):
         self.mood = Mood_Service()
@@ -131,9 +131,9 @@ class Mood_Visual(QWidget, uw.Ui_Form):
                     ax.plot(num, new_one_data, label=category[i])
 
                 ax.legend()
-                plt.savefig('./Mood/images/mood_visual_one_week_result.png')
+                plt.savefig('../image/Mood/mood_visual_one_week_result.png')
                 self.label_one_week_mood.clear()
-                self.label_one_week_mood.setStyleSheet("border-image: url(./Mood/images/mood_visual_one_week_result.png);")
+                self.label_one_week_mood.setStyleSheet("border-image: url(../image/Mood/mood_visual_one_week_result.png);")
             else:
                 self.label_one_week_mood.clear()
                 self.label_one_week_mood.setStyleSheet(u"font: 700 italic 51pt \"Comic Sans MS\";")

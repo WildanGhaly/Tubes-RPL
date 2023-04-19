@@ -80,9 +80,9 @@ class Mood_Prediction(QWidget, uw.Ui_Form):
 
             plt.gca().invert_xaxis()
             ax.legend()
-            plt.savefig('./Mood/images/mood_visual_fifteen_days_result.png')
+            plt.savefig('../image/Mood/mood_visual_fifteen_days_result.png')
             self.mood_prediction_graph.clear()
-            self.mood_prediction_graph.setStyleSheet("border-image: url(./Mood/images/mood_visual_fifteen_days_result.png);")
+            self.mood_prediction_graph.setStyleSheet("border-image: url(../image/Mood/mood_visual_fifteen_days_result.png);")
             self.show_mood_prediction()
             
         else:
@@ -111,10 +111,10 @@ class Mood_Prediction(QWidget, uw.Ui_Form):
         plt.grid(True)
         plt.tight_layout()
         plt.legend()
-        plt.savefig('./Mood/images/mood_prediction_result.png')
+        plt.savefig('../image/Mood/mood_prediction_result.png')
         
         self.mood_prediction_label.clear()
-        self.mood_prediction_label.setStyleSheet("border-image: url(./Mood/images/mood_prediction_result.png);")
+        self.mood_prediction_label.setStyleSheet("border-image: url(../image/Mood/mood_prediction_result.png);")
                 
 # app = QtWidgets.QApplication(sys.argv)
 
