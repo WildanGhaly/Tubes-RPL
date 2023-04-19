@@ -44,9 +44,7 @@ class Quotes_Service(Q.Quotes):
                 return True
         return False
 
-    def delete_quote(self, quote_old, new_quote):
-        if not self.validate_quote(new_quote):
-            return False
+    def delete_quote(self, quote_old):
         temp = []
         found = False
         for quote in self.quotes:

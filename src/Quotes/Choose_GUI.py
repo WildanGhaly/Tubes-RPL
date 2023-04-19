@@ -35,23 +35,31 @@ class QChoose(QS.Quotes_Service):
 
         # self.label.setStyleSheet("background-image: url(:/newPrefix/select quotes menu fg.png);")
         self.label.setStyleSheet(f"background-image: url({main.image_path});\n"
-"border-image: url(./Quotes/image/select quotes menu fg black.png);")
+"border-image: url(./Quotes/image/select quotes menu fg.png);")
         self.label.setText("")
         self.label.setObjectName("label")
 
         self.add_choose = QtWidgets.QPushButton(self.centralwidget)
-        self.add_choose.setGeometry(QtCore.QRect(300, 570, 141, 51))
+        self.add_choose.setGeometry(QtCore.QRect(190, 560, 131, 61))
         self.add_choose.setStyleSheet("background-color: transparent;")
         self.add_choose.setText("")
         self.add_choose.setObjectName("add_choose")
         self.add_choose.clicked.connect(self.add)
 
         self.edit_choose = QtWidgets.QPushButton(self.centralwidget)
-        self.edit_choose.setGeometry(QtCore.QRect(940, 570, 141, 51))
+        self.edit_choose.setGeometry(QtCore.QRect(1040, 560, 141, 61))
         self.edit_choose.setStyleSheet("background-color: transparent;")
         self.edit_choose.setText("")
         self.edit_choose.setObjectName("edit_choose")
         self.edit_choose.clicked.connect(self.edit)
+
+        self.delete_choose = QtWidgets.QPushButton(self.centralwidget)
+        self.delete_choose.setGeometry(QtCore.QRect(620, 560, 131, 61))
+        self.delete_choose.setStyleSheet("background-color: transparent;")
+        self.delete_choose.setText("")
+        self.delete_choose.setObjectName("add_choose")
+        self.delete_choose.clicked.connect(self.delete)
+
 
         self.backButton = QtWidgets.QPushButton(self.centralwidget)
         self.backButton.setObjectName(u"backButton")
@@ -88,6 +96,13 @@ class QChoose(QS.Quotes_Service):
         print("edit")
         from Quotes.Quotes_edit_Call import Quotes_Edit_Call
         self.add_quotes_window = Quotes_Edit_Call()
+        self.add_quotes_window.show()
+        self.hide()
+    
+    def delete(self):
+        print("delete")
+        from Quotes.Quotes_delete_Call import Quotes_Delete_Call
+        self.add_quotes_window = Quotes_Delete_Call()
         self.add_quotes_window.show()
         self.hide()
     
