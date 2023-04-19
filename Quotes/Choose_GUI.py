@@ -61,9 +61,9 @@ class QChoose(QS.Quotes_Service):
 
 
         # MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 21))
-        self.menubar.setObjectName("menubar")
+        # self.menubar = QtWidgets.QMenuBar(MainWindow)
+        # self.menubar.setGeometry(QtCore.QRect(0, 0, 1366, 21))
+        # self.menubar.setObjectName("menubar")
         # MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

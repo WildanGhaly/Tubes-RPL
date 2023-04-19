@@ -33,7 +33,6 @@ class Quotes_Service(Q.Quotes):
             self.add_quote(quote)
             
     def edit_quote(self, quote_old, new_quote):
-        print(quote_old, new_quote)
         if not self.validate_quote(new_quote):
             return False
         for quote in self.quotes:
@@ -44,6 +43,27 @@ class Quotes_Service(Q.Quotes):
                     csv.writer(file).writerows([['Number', 'Quote']] + self.quotes)
                 return True
         return False
+
+    def delete_quote(self, quote_old, new_quote):
+        if not self.validate_quote(new_quote):
+            return False
+        temp = []
+        found = False
+        for quote in self.quotes:
+            if quote[1] == quote_old:
+                found = True
+                continue
+            if found:
+                quote[0] = str(int(quote[0]) - 1)
+
+            temp.append(quote)
+            
+        self.quotes = temp
+        with open(self.filename, 'w', newline='') as file:
+            csv.writer(file).writerows([['Number', 'Quote']] + self.quotes)
+        return True
+        
+        # return False
     
     def get_random_quote(self):
         return random.choice(self.quotes)[1]
