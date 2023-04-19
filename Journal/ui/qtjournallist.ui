@@ -35,6 +35,9 @@
    <string notr="true">background-image: url(:/Journal/background.jpg);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Journal/Resources/background.jpg);</string>
+   </property>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
@@ -46,7 +49,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;
-image: url(:/Journal/journal list fg.png);</string>
+image: url(:/Journal/Resources/journal list fg.png);</string>
     </property>
     <widget class="QFrame" name="contentFrame">
      <property name="geometry">
