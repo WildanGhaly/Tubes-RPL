@@ -9,6 +9,7 @@ from PyQt5 import QtWidgets
 from Sleep.Sleep import Sleep
 from Sleep.Sleep_Plot import *
 from Mood.mood_pyqt_visual_calendar import Mood_Form_Calendar as mfc
+import  MainMenu.mainmenu as main
 
 class Ui_Widget(QWidget, Sleep, uw.Ui_Form):
     def __init__(self):
@@ -75,7 +76,7 @@ class Ui_Widget(QWidget, Sleep, uw.Ui_Form):
         self.bg.setSizePolicy(sizePolicy)
         self.bg.setMinimumSize(QSize(1366, 720))
         self.bg.setMaximumSize(QSize(1366, 720))
-        self.bg.setStyleSheet(u"border-image: url(./Sleep/vstock/background.jpg)")
+        self.bg.setStyleSheet(f"background-image: url({main.image_path})")
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)

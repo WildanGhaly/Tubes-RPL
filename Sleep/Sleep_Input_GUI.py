@@ -12,6 +12,7 @@ from Sleep.Sleep_Service import Sleep_Service
 from Sleep.Sleep import Sleep
 
 from Sleep.Sleep_Plot import *
+import  MainMenu.mainmenu as main
 
 class Ui_Widget(QWidget, Sleep_Service, Sleep):
     def __init__(self):
@@ -44,7 +45,7 @@ class Ui_Widget(QWidget, Sleep_Service, Sleep):
         self.bg.setSizePolicy(sizePolicy)
         self.bg.setMinimumSize(QSize(1366, 720))
         self.bg.setMaximumSize(QSize(1366, 720))
-        self.bg.setStyleSheet(u"border-image: url(./Sleep/vstock/background.jpg)")
+        self.bg.setStyleSheet(f"background-image: url({main.image_path})")
         self.sleepViz = QLabel(Widget)
         self.sleepViz.setObjectName(u"label")
         self.sleepViz.setEnabled(True)
