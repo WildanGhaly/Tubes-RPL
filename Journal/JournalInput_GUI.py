@@ -21,14 +21,13 @@ class JournalInput(object):
         MainWindow.setMinimumSize(QtCore.QSize(599, 800))
         MainWindow.setMaximumSize(QtCore.QSize(1920, 1080))
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet("background-image: url(:/Journal/background.jpg);")
+        MainWindow.setStyleSheet(f"background-image: url({main.image_path});")
         # MainWindow.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(800, 600))
         self.centralwidget.setMaximumSize(QtCore.QSize(1920, 1080))
         self.centralwidget.setStyleSheet("background: transparent;\n"
-"image: transparent;\n"
-f"background-image: url({main.image_path});")
+"image: transparent;")
         self.centralwidget.setObjectName("centralwidget")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setEnabled(True)
